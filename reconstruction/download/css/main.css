@@ -1,0 +1,90 @@
+*{
+    margin:0px ;
+    padding:0px;
+}
+html,body{
+	min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Microsoft YaHei, '微软雅黑', Arial, sans-serif;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+}
+ul,li{
+    list-style: none;
+}
+a,a:link,a:visited,a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+.clearfix{
+    clear: both;
+}
+.idol-download-container{
+	max-width: 720px;
+	margin: 0 auto;
+	position: relative;
+}
+.idol-download-btn{
+	display: block;
+	position: absolute;
+    top: 240px;
+    color: #535353 !important;
+    font-size: 28px;
+    line-height: 100px;
+    width: 626px;
+    height: 100px;
+    left: 50%;
+    margin-left: -313px;
+    border-radius: 10px;
+}
+.idol-download-btn-android{
+    background-color: #ffffff;
+    display: block;
+    float: left;
+    text-align: center;
+    width: 300px;
+    border-radius: 15px;
+}
+.idol-download-btn-android:before{
+    content: "";
+    background: url('../images/android_icon.png') no-repeat;
+    width: 54px;
+    height: 57px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 14px;
+}
+.idol-download-btn-ios{
+    background-color: #ffffff;
+    display: block;
+    float: right;
+    text-align: center;
+    width: 300px;
+    border-radius: 15px;
+}
+.idol-download-btn-ios:before{
+    content: "";
+    background: url('../images/iOS_icon.png') no-repeat;
+    width: 50px;
+    height: 57px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 14px;
+}
+.idol-download-footer{
+	position: absolute;
+	bottom: 50px;
+	width: 100%;
+}
+.idol-download-footer-chinese{
+	color: #ff488d;
+	font-size: 28px;
+	line-height: 38px;
+}
+.idol-download-footer-english{
+	color: #999999;
+	font-size: 24px;
+	line-height: 38px;
+}

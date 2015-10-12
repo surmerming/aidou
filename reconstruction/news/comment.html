@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="zh-cmn-Hans" xmlns:wb="http://open.weibo.com/wb" ng-app="IdolVideo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Description" content="曾经出演过我们相爱吧的崔始源和模特刘雯再次见面。25日两人一同拍摄某韩流服饰品牌广告，两人再次相遇引发了大家的关注。" />
+    <meta name="Keywords" content="爱豆，中国第一粉丝门户" />
+    <title>[星闻]崔始源、刘雯再次相遇合拍广告</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,">  
+    <link rel="stylesheet" href="http://misc.web.idol001.com/wap/css/style-mobile.css?date=201504211554" />
+    <link rel="stylesheet" href="http://misc.web.idol001.com/tv/video/css/menu.css?date=201507281555" />
+    <!-- by xm -->
+    <!-- begin -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- end -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f8d645bec1af37323ecf4b6f52453b71";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <script type="text/javascript" src="http://misc.web.idol001.com/www/js/jquery.js"></script>
+    <script type="text/javascript" src="http://tv.idol001.com/js/angular-1.2.9/angular.min.js"></script>
+    <script>
+    document.domain = 'idol001.com';
+var IdolVideo = angular.module("IdolVideo", ["IdolVideo.ctrl", "IdolVideo.directive", "IdolVideo.filter", "IdolVideo.service"], function () {
+});
+
+var IdolVideoCtrl = angular.module("IdolVideo.ctrl", []);
+var IdolVideoDirective = angular.module("IdolVideo.directive", []);
+var IdolVideoFilter = angular.module("IdolVideo.filter", []);
+var IdolVideoService = angular.module("IdolVideo.service", []);
+
+IdolVideoService.service( 'Video', [ '$rootScope', '$window', '$http', function( $rootScope, $win, $http ) {
+
+this.loginCheck = function() {
+    return $http.jsonp("http://user.idol001.com/weibo_callback.php?callback=JSON_CALLBACK");
+}
+
+this.login = function() {
+    location.href = 'https://api.weibo.com/oauth2/authorize?forcelogin=true&client_id=3462420625&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fweibo_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&response_type=code';
+}
+
+this.loginSina = function() {
+    location.href = 'https://api.weibo.com/oauth2/authorize?forcelogin=true&client_id=3462420625&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fweibo_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&response_type=code';
+}
+
+this.loginQQ = function() {
+    location.href = 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101221908&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fqq_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&state=d29c61ba4166065869216c2111cae4f2&scope=get_user_info,get_simple_userinfo,get_vip_info,get_vip_rich_info,list_album,upload_pic,add_album,list_photo,check_page_fans,get_info,add_t,del_t,add_pic_t,get_repost_list,get_other_info,get_fanslist,get_idollist,add_idol,del_idol,get_tenpay_addr';
+}
+
+}]);
+
+IdolVideoDirective.directive( "loginBtnSina", [ 'Video', function( Video ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+                Video.loginSina();
+            });
+        }
+    }
+}]);
+
+IdolVideoDirective.directive( "loginBtnQq", [ 'Video', function( Video ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+                Video.loginQQ();
+            });
+        }
+    }
+}]);
+
+IdolVideoCtrl.controller('VideoHeader', ['$window', '$scope', '$rootScope', '$timeout', 'Video', function($win, $scope, $rootScope, $timeout, Video){
+
+$scope.showMenu = false;
+$scope.showLogin = false;
+$scope.userinfo = null;
+$scope.tip_show = true;
+
+$scope.preventHide = function($event) {
+    $event.stopPropagation();
+}
+
+$win.loginCallBack = function(userinfo) {
+    $timeout(function() {
+        $scope.userinfo = userinfo;
+        $scope.showLogin = false;
+    }, 0);
+}
+
+    Video.loginCheck().success(
+    function(data, status, header, config){
+        $timeout(function() {
+            $scope.userinfo = data;
+
+        }, 0);
+    }).error(
+        function(data){
+            $scope.loaded = true;
+            console.log(data);
+        }
+    );
+
+}]);
+
+</script>
+</head>
+<body ng-controller="VideoHeader">
+    <div class="pop-menu-main" ng-click="preventHide($event)" ng-show="!!showMenu" ng-cloak>
+        <div class="pop-user-login">
+            <a href="javascript:void(0)" class="pop-avatar" ng-click="showLogin=!userinfo?true:false"><img ng-src="{{!!userinfo?userinfo.image.thumbnail_pic:'http://misc.web.idol001.com/tv/video/images/avatar.jpg'}}" alt=""></a>
+            <a href="javascript:void(0)" class="pop-btn-login" ng-show="!userinfo" ng-click="showLogin=true">登录</a>
+            <!-- 已登录 -->
+            <a href="http://activity.idol001.com/mobile/person/" class="pop-user-name" ng-show="!!userinfo">{{userinfo.nickname}}</a>
+        </div>
+        <ul class="pop-menu-nav">
+            <li><a class="a-home on" href="http://m.idol001.com/">首页</a></li>
+            <li><a class="a-vedio " href="http://tv.idol001.com/television.html">影视库</a></li>
+            <li><a class="a-flag" href="http://activity.idol001.com/mobile.php">活动汇</a></li>
+        </ul>
+    </div>
+    <div class="pop-menu" ng-click="showMenu=false" ng-show="!!showMenu" ng-cloak>
+    </div>
+
+    <iframe id="form_post" name="form_post" src="about:blank" height=0 width=0 style="display:none"></iframe>
+    <div class="guide-tips" id="guide-dialog" ng-cloak ng-show="!!showLogin" ng-click="preventHide($event)">
+        <div class="guide-dialog-login">
+            <a class="close-btn" href="javascript://" ng-click="showLogin=false"></a>
+            <section class="login-pt login-pt2">
+                <h1 class="login-tit login-idol">爱豆账号登录<i></i></h1>
+                <div class="login-btn-con">
+                    <div class="login-form">
+                        <form class="form-login" method="post" action="http://user.idol001.com/web_login.php?action=login_idol" target="form_post">
+                            <div class="login-wr">
+                                <label for="username" class="login-lb">账号</label>
+                                <input type="text" class="login-ip" id="username" name="username"/>
+                            </div>
+                            <div class="login-wr">
+                                <label for="password" class="login-lb">密码</label>
+                                <input type="password" class="login-ip" id="password" name="password"/>
+                            </div>
+                            <div class="login-wr">
+                                <p class="login-error" style="display:none">帐号不存在或者密码错误</p>
+                                <a href="javascript://" onclick="$('.form-login').submit()" class="btn-login">登录</a>
+                            </div>
+                        </form>
+                    </div>             
+                </div>
+            </section>
+            <section class="login-pt login-pt1">
+                <h1 class="login-tit">一键登录 无需注册</h1>
+                <div class="login-btn-con">
+                    <a class="dl-btn dl-qq" login-btn-qq >QQ登录<b></b></a>
+                    <a class="dl-btn dl-wb" login-btn-sina >微博登录<b></b></a>                 
+                </div>
+            </section>
+        </div>
+    </div>
+<div class="container">
+    <header class="header">
+        <h1 class="tit-main"><a href="http://m.idol001.com/">爱豆 中国第一粉丝门户</a></h1>
+        <div class="pop-head-opt">
+            <a href="javascript:void(0)" ng-click="showMenu=true;preventHide($event)" class="btn-menu"></a>
+        </div>
+    </header>
+    <nav class="nav">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-it"><a href="http://m.idol001.com/" class="breadcrumb-ln">首页</a></li>
+            <li class="breadcrumb-it"><a href="http://m.idol001.com/quanzi/54b0e60fcd4e7097028b45ef/" class="breadcrumb-ln">韩流星消息</a></li>
+            <li class="breadcrumb-it">新闻</li>
+
+        </ul>
+    </nav>
+    <article class="news-detail">
+        <header class="news-header">
+            <h1 class="news-tit">[星闻]崔始源、刘雯再次相遇合拍广告</h1>
+            <div class="news-message">
+                <time class="news-pushtime">15-09-25 17:15</time>
+                <p class="news-from" style="display:none">来源: omybus</p>
+            </div>
+        </header>
+        <div class="news-content" id="news-content">
+            <p>曾经出演过我们相爱吧的崔始源和模特刘雯再次见面。25日两人一同拍摄某韩流服饰品牌广告，两人再次相遇引发了大家的关注。</p><p><img class="news-cont-pic" _id="560510ba7a11738d1a8b4ba9" src="http://img.idol001.com/origin/2015/09/25/000b2b988b0df96f00655307599cb1691443172537.jpg" _src="http://img.idol001.com/origin/2015/09/25/000b2b988b0df96f00655307599cb1691443172537.jpg"/></p>
+        </div>
+
+        <div class="share">
+            <!-- JiaThis Button BEGIN -->
+            <script>
+            var jiathis_config = {
+                title:"【[星闻]崔始源、刘雯再次相遇合拍广告】",
+                summary:"曾经出演过我们相爱吧的崔始源和模特刘雯再次见面。25日两人一同拍摄某韩流服饰品牌广告，两人再次相遇引发了大家的关注。",
+            }
+            </script>
+            <div class="jiathis_style_32x32">
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                <span class="jiathis_txt">分享到：</span>
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                <a class="jiathis_button_weixin"></a>
+            </div>
+
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1374472569394595" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+        </div>
+    </article>
+    <!-- by xm -->
+    <!-- begin -->
+    <!-- <section class="more">
+        <h1 class="tit-more">更多韩流星消息相关新闻</h1>
+        <ul class="lis-news">
+                            <li class="news-it"><a class="news-ln" href="http://m.idol001.com/quanzi/54b0e60fcd4e7097028b45ef/detail/560cd5f3cd4e70fa178b457d/"><p class="idol-news-if">[星闻]“赵寅成室乱闯者”A某女性反称受害，胳膊上有淤青</p></a></li>
+                                    <li class="news-it"><a class="news-ln" href="http://m.idol001.com/quanzi/54b0e60fcd4e7097028b45ef/detail/560cd54acd4e7087458b48af/"><p class="idol-news-if">[星闻]《龙八夷》剧组：金泰希患癌是复仇代价，并非无理！</p></a></li>
+                                    <li class="news-it"><a class="news-ln" href="http://m.idol001.com/quanzi/54b0e60fcd4e7097028b45ef/detail/560cd50dcd4e70ec0c8b4627/"><p class="idol-news-if">[星闻]国军节表演：宋家三胞胎敬举手礼 可爱大爆棚</p></a></li>
+                                                                                                                                        </ul>
+        <a class="btn-more" href="http://m.idol001.com/quanzi/54b0e60fcd4e7097028b45ef/">查看更多</a>
+    </section>
+    <div class="placeholder">
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3462420625" type="text/javascript" charset="utf-8"></script>
+        <wb:comments url="http://m.idol001.com/quanzi/54b0e60fcd4e7097028b45ef/detail/560510c3cd4e703b378b45cf/" fontsize="14" border="N" width="auto" skin="silver" appkey="3462420625"></wb:comments>微博评论箱
+    </div> -->
+    <section class="idol-lead-section">
+        <section class="idol-lead-section-main">
+            <section class="idol-lead-download">
+                <ul class="idol-app-intro">
+                    <li class="idol-ai-figure">
+                        <img src="images/app_feature_1.png" />
+                        <div class="idol-ai-figure-text">一手，独家信息</div>
+                    </li>   
+                    <li class="idol-ai-figure">
+                        <img src="images/app_feature_2.png" />
+                        <div class="idol-ai-figure-text">直播清晰流畅</div>
+                    </li>   
+                    <li class="idol-ai-figure">
+                        <img src="images/app_feature_3.png" />
+                        <div class="idol-ai-figure-text">INS，推特，动态</div>
+                    </li>   
+                    <div class="clearfix"></div>
+                </ul>
+                <section class="idol-app-download">
+                    <div class="idol-app-download-left">
+                        <div class="idol-adl-icon">
+                            <img src="images/app_download_icon.png" />
+                        </div>
+                        <div class="idol-adl-slogan">
+                            <div class="idol-adl-slogan-title">爱豆APP</div>
+                            <div class="idol-adl-slogan-rate">
+                                <img src="images/app_rate.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="idol-app-download-right">
+                        <div class="idol-adr-download-btn">立即下载</div>
+                    </div>  
+                    <div class="clearfix"></div>    
+                </section>          
+            </section>
+            <section class="idol-lead-read">
+                <section class="idol-lead-read-tabs">
+                    <div class="idol-lrt-tab idol-lrt-star-tab">
+                        <span class="idol-lrt-tab-text">明星相关</span>
+                    </div>
+                    <div class="idol-lrt-tab idol-lrt-comment-tab active">
+                        <span class="idol-lrt-tab-text">评论(39)</span>
+                    </div> 
+                    <div class="clearfix"></div>     
+                </section>
+                <section class="idol-star-tab-page" style="display:none;">
+                    <ul class="idol-stp-news">
+                        <li class="idol-stp-news-item">
+                            <div class="idol-stp-ni-cover"><img src="images/news_image.png" alt=""></div>
+                            <div class="idol-stp-ni-description">
+                                <div class="idol-stp-ni-description-content">
+                                    <span class="idol-stp-ni-type">[新闻]</span><span class="idol-stp-ni-title">150509 吴亦凡在Met Ball晚宴与孙菲菲合影</span>  
+                                </div>                          
+                            </div>   
+                            <div class="clearfix"></div> 
+                        </li>
+                        <li class="idol-stp-news-item">
+                            <div class="idol-stp-ni-cover"><img src="images/news_image.png" alt=""></div>
+                            <div class="idol-stp-ni-description">
+                                <div class="idol-stp-ni-description-content">
+                                    <span class="idol-stp-ni-type">[新闻]</span><span class="idol-stp-ni-title">150509 吴亦凡在Met Ball晚宴与孙菲菲合影</span>  
+                                </div>     
+                            </div>   
+                            <div class="clearfix"></div> 
+                        </li>
+                        <li class="idol-stp-news-item">
+                            <div class="idol-stp-ni-cover"><img src="images/news_image.png" alt=""></div>
+                            <div class="idol-stp-ni-description">
+                                <div class="idol-stp-ni-description-content">
+                                    <span class="idol-stp-ni-type">[新闻]</span><span class="idol-stp-ni-title">150509 吴亦凡在Met Ball晚宴与孙菲菲合影</span>  
+                                </div>     
+                            </div>   
+                            <div class="clearfix"></div> 
+                        </li>
+                    </ul>
+                    <div class="idol-stp-more">更多新闻</div>    
+                    <section class="idol-lead-foreshow">
+                        <div class="idol-lead-foreshow-top">
+                            <div class="idol-lead-foreshow-top-left">
+                                <img src="images/plan_calendar.png" class="idol-lf-tl-img">
+                                <div class="idol-lf-tl-text">下个行程</div>        
+                            </div>
+                            <div class="idol-lead-foreshow-top-right">
+                                <div class="idol-lf-tr-btn">更多</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>   
+                        <div class="idol-lead-foreshow-content">
+                            <div class="idol-lf-content-left">13小时后</div>
+                            <div class="idol-lf-content-des">
+                                <div class="idol-lf-cd-title">Nature republic明洞旗舰店开幕式：泰妍</div>
+                                <div class="idol-lf-cd-intro">
+                                    <div class="idol-lf-cd-intro-time">
+                                        <img src="images/plan_time.png" alt="">
+                                        <div class="idol-lf-cd-intro-text">04-24 11:00</div>
+                                    </div>
+                                    <div class="idol-lf-cd-intro-position">
+                                        <img src="images/plan_position.png" alt="">
+                                        <div class="idol-lf-cd-intro-text">首尔 Nature...</div>
+                                    </div>
+                                    <div class="idol-lf-cd-intro-activity">
+                                        <div class="idol-lf-cd-intro-activity-icon"></div>
+                                        <div class="idol-lf-cd-intro-text">活动</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div class="clearfix"></div>
+                        </div> 
+                    </section>
+                </section>
+                <section class="idol-comment-star-tab" style="display:block;">
+                    <div class="idol-comment-many" style="display:block;">
+                        <div class="idol-comment-top">
+                            <div class="idol-comment-top-num">39评论</div>
+                            <div class="idol-comment-top-info">评论互动请下载爱豆APP</div>
+                            <div class="clearfix"></div>
+                        </div>       
+                        <ul class="idol-comment-lists">
+                            <li class="idol-comment-item">
+                                <div class="idol-comment-item-top">
+                                    <div class="idol-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="" class="idol-comment-item-img">
+                                        <div class="idol-comment-item-left-nickname">鹿晗生猴子</div>
+                                    </div>
+                                    <div class="idol-comment-item-time">一天前</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="idol-comment-item-content">说真的，我觉得这个圈子有傻子有骗子，有骚人有贱人，还真就没有老实人。这年头，娱乐圈里说谁是老实人，绝对是句骂人话。</div> 
+                            </li>
+                            <li class="idol-comment-item">
+                                <div class="idol-comment-item-top">
+                                    <div class="idol-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="" class="idol-comment-item-img">
+                                        <div class="idol-comment-item-left-nickname">鹿晗生猴子</div>
+                                    </div>
+                                    <div class="idol-comment-item-time">一天前</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="idol-comment-item-content">说真的，我觉得这个圈子有傻子有骗子，有骚人有贱人，还真就没有老实人。这年头，娱乐圈里说谁是老实人，绝对是句骂人话。</div> 
+                            </li>
+                            <li class="idol-comment-item">
+                                <div class="idol-comment-item-top">
+                                    <div class="idol-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="" class="idol-comment-item-img">
+                                        <div class="idol-comment-item-left-nickname">鹿晗生猴子</div>
+                                    </div>
+                                    <div class="idol-comment-item-time">2015-09-24  15:11:02</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="idol-comment-item-content">我爸是李刚，我表示呵呵，然并卵</div> 
+                            </li>
+                            <li class="idol-comment-item">
+                                <div class="idol-comment-item-top">
+                                    <div class="idol-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="" class="idol-comment-item-img">
+                                        <div class="idol-comment-item-left-nickname">鹿晗生猴子</div>
+                                    </div>
+                                    <div class="idol-comment-item-time">2015-09-24  15:11:02</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="idol-comment-item-content">我爸是李刚，我表示呵呵，然并卵</div> 
+                            </li>
+                            <li class="idol-comment-item">
+                                <div class="idol-comment-item-top">
+                                    <div class="idol-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="" class="idol-comment-item-img">
+                                        <div class="idol-comment-item-left-nickname">鹿晗生猴子</div>
+                                    </div>
+                                    <div class="idol-comment-item-time">2015-09-24  15:11:02</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="idol-comment-item-content">我爸是李刚，我表示呵呵，然并卵</div> 
+                            </li>
+                        </ul>
+                        <div class="idol-comment-more">
+                            <img src="images/comment_loading_more.png" class="idol-comment-loading-more-icon">
+                            <div class="idol-comment-more-text">正在加载</div>
+                        </div>
+                    </div>
+                    <div class="idol-comment-nothing" style="display:none;">
+                        <div class="idol-comment-top">
+                            <div class="idol-comment-top-num">0评论</div>
+                            <div class="idol-comment-top-info">评论互动请下载爱豆APP</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="idol-comment-nothing-info">暂无评论，快来抢沙发~</div>
+                    </div>
+                </section>
+            </section>
+            
+        </section>
+        
+    </section>
+    
+    <!-- end -->
+</div>
+<!-- <div class="tip" id="tips">
+    <div class="app">
+        <img src="http://misc.web.idol001.com/wap/pics/icon.png" alt="" class="app-logo"/>
+        <h2 class="tit-app">爱豆APP</h2>
+        <p class="app-if">追星必备神器</p>
+    </div>
+    <a class="btn-close" href="javascript:void(0)" onclick="closeTip()" target="_self"><span class="close-if">关闭</span></a>
+    <a class="btn-dw" onclick="if(/iPad|iPhone|iPod/i.test(navigator.userAgent)){location.href='http://click.hm.baidu.com/app.gif?ap=199824&ch=23484'}else{location.href='http://click.hm.baidu.com/app.gif?ap=104915&ch=23482'}return false;" href="javascript:void(0)" id="btn-dw">立即下载</a>
+    
+</div> -->
+
+<div class="guide-tips" style="display:none" id="guide-dialog">
+    <div class="guide-tips-con">
+        <h4><img src="http://misc.web.idol001.com/wap/pics/guide-icon-tit.png" alt="爱豆APP-追星必备神器"></h4>
+        <div class="guide-list">
+            <ul class="flex">
+                <li class="li1"><img src="http://misc.web.idol001.com/wap/pics/guide-icon1.png" alt="随时追踪行程">随时追踪行程</li>
+                <li class="li2"><img src="http://misc.web.idol001.com/wap/pics/guide-icon2.png" alt="美图视频搜集">美图视频搜集</li>
+                <li class="li3"><img src="http://misc.web.idol001.com/wap/pics/guide-icon3.png" alt="亲密家人互动">亲密家人互动</li>
+            </ul>
+        </div>
+        <div class="div-dw">
+            <div class="div-app">
+                <img src="http://misc.web.idol001.com/wap/pics/icon.png" alt="" class="img1">
+                <img src="http://misc.web.idol001.com/wap/pics/guide-icon-app.png" alt="" class="img">
+            </div>
+            <div class="btn-dw-wp"><a class="btn-dw" onclick="if(/iPad|iPhone|iPod/i.test(navigator.userAgent)){location.href='http://click.hm.baidu.com/app.gif?ap=199824&ch=23484'}else{location.href='http://click.hm.baidu.com/app.gif?ap=104915&ch=23482'}return false;" href="javascript:void(0)">立即下载</a></div>
+        </div>
+        <p class="pass"><a href="javascript:void(0)" onclick="closeDialog();return false;">下次再说，跳过&gt;</a></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function closeTip() {
+        document.getElementById('tips').style.display = 'none';
+    }
+
+    var Common_Tool = {};
+
+    Common_Tool.getCookie=function(a){
+        return document.cookie.match(RegExp("(^"+a+"| "+a+")=([^;]*)"))==null?"":decodeURIComponent(RegExp.$2);
+    }
+
+    Common_Tool.setCookie=function(name,value,millisecond){
+            if(arguments.length>2){
+                var expireDate=new Date(new Date().getTime()+millisecond);
+                document.cookie = name + "=" + encodeURIComponent(value) + "; path=/; domain=idol001.com; expires=" + expireDate.toGMTString();
+            }else{
+                document.cookie = name + "=" + encodeURIComponent(value) + "; path=/; domain=idol001.com";
+            }
+    }
+
+    function closeDialog(){
+        document.getElementById("guide-dialog").style.display="none";
+        Common_Tool.setCookie("guide-dialog",1,24*3600*1000);
+    }
+
+    if (Common_Tool.getCookie("guide-dialog") != 1) {
+        document.getElementById("guide-dialog").style.display="";
+    }
+</script>
+</body>
+</html>
+<div style="display: none;"><script language="javascript" type="text/javascript" src="http://js.users.51.la/9855399.js"></script><noscript><a href="http://www.51.la/?9855399" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/9855399.asp" style="border:none" /></a></noscript></div>
+</html>

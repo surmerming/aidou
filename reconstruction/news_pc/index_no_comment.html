@@ -1,0 +1,942 @@
+<!doctype html>
+<!--[if lte IE 8 ]><html lang="zh-cmn-Hans" class="lte8" ng-app="IdolClub"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="zh-cmn-Hans" ng-app="IdolClub"> <!--<![endif]-->
+<head>
+    <title>[少女时代][新闻]150925 Yuri《邻家英雄》第一次剧本研读会现场公开——IDOL新闻</title>
+	
+	<!-- Include CSS -->
+	<link rel="stylesheet" href="http://misc.web.idol001.com/common/css/reset2.css?date=201507281601">
+	<link rel="stylesheet" href="http://misc.web.idol001.com/common/css/master.css?date=201507281601">
+	<link rel="stylesheet" href="http://misc.web.idol001.com/activity/css/login-pc.css" />
+	<!-- by xm -->
+    <!-- begin -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- end -->
+	<script type="text/javascript" src="http://tv.idol001.com/js/common.js"></script>
+    <script type="text/javascript" src="http://misc.web.idol001.com/www/js/jquery.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="keywords" content="爱豆,爱豆APP,idol,蜂窝Me,偶像,明星,特别关注,近况,直播,动态,微博,少女时代" />
+	<meta name="description" content="OCN新剧《邻家英雄》剧组第一次剧本研读会现场照片公开。Yuri将会在电视剧中饰演一个喜欢冒险、在多个国家转换不同身份执行秘密任务，为了任务可以舍弃爱情的角色，是一个邻家英雄。《邻" />    
+    <style>
+.article-detail img{ max-width:100%; } 
+    </style>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?f8d645bec1af37323ecf4b6f52453b71";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script type="text/javascript" src="http://misc.web.idol001.com/www/js/jquery.js"></script>
+    <script type="text/javascript" src="http://misc.web.idol001.com/activity/js/angular.min.js"></script>
+    <script type="text/javascript">
+document.domain = 'idol001.com';
+
+//Angular JS Definition
+var IdolClub = angular.module("IdolClub", ["IdolClub.ctrl", "IdolClub.directive", "IdolClub.filter", "IdolClub.service"], function () {
+});
+
+var IdolClubCtrl = angular.module("IdolClub.ctrl", []);
+var IdolClubDirective = angular.module("IdolClub.directive", []);
+var IdolClubFilter = angular.module("IdolClub.filter", []);
+var IdolClubService = angular.module("IdolClub.service", []);
+
+IdolClubService.service( 'Club', ['$rootScope', '$window', '$http', function( $rootScope, $win, $http ) {
+    this.loginSina = function() {
+        location.href = 'https://api.weibo.com/oauth2/authorize?forcelogin=true&client_id=3462420625&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fweibo_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&response_type=code';
+        
+    }
+
+    this.loginQQ = function() {
+        location.href = 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101221908&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fqq_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&state=d29c61ba4166065869216c2111cae4f2&scope=get_user_info,get_simple_userinfo,get_vip_info,get_vip_rich_info,list_album,upload_pic,add_album,list_photo,check_page_fans,get_info,add_t,del_t,add_pic_t,get_repost_list,get_other_info,get_fanslist,get_idollist,add_idol,del_idol,get_tenpay_addr';
+    }
+
+    this.loginCheck = function(){
+        return $http.jsonp("http://user.idol001.com/weibo_callback.php?callback=JSON_CALLBACK");
+    }
+}]);
+
+IdolClubDirective.directive( "loginBtn", [ 'Club', function( Club ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+                scope.mainLogin();
+            });
+        }
+    }
+}]);
+
+IdolClubDirective.directive( "loginBtnSina", [ 'Club', function( Club ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+                Club.loginSina();
+            });
+        }
+    }
+}]);
+
+IdolClubDirective.directive( "loginBtnQq", [ 'Club', function( Club ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+                Club.loginQQ();
+            });
+        }
+    }
+}]);
+
+IdolClubCtrl.controller('ClubContainer', ['$window', '$scope', '$rootScope', '$timeout', 'Club', function($win, $scope, $rootScope, $timeout, Club){
+
+    $scope.showMainLogin = false;
+    $scope.userinfo = null;
+
+    $scope.logout = function() {
+        Common_Tool.delCookie('PHPSESSID');
+        $scope.userinfo = null;
+    }
+
+    $win.loginCallBack = function (response){
+        $timeout(function() {
+            $scope.userinfo = response;
+            $scope.showMainLogin = false;
+        }, 0);
+    }
+    
+    Club.loginCheck().success(
+        function(response, status, header, config){
+            $timeout(function() {
+                $scope.userinfo = response;
+                $scope.showMainLogin = false;
+            }, 0);
+        }).error(
+        function(data){
+            console.log('error', data);
+        }
+    );
+
+}]);
+    </script>
+</head>
+    
+<body oncontextmenu="return false" onselectstart="return false" 
+ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()  ng-controller="ClubContainer">
+	<iframe id="form_post" name="form_post" src="about:blank" height=0 width=0 ng-cloak style="display:none"></iframe>
+    <div class="guide-dialog" id="guide-dialog" ng-cloak ng-show="!!showMainLogin">      
+        <div class="guide-dialog-con guide-dialog-login">
+            <a class="close-btn" href="javascript://" ng-click="showMainLogin=false"></a>
+            <section class="login-pt login-pt1">
+                <h1 class="login-tit">一键登录 无需注册</h1>
+                <div class="login-btn-con">
+                    <a class="dl-btn dl-qq" login-btn-qq ><b></b>QQ登录<b></b></a>
+                    <a class="dl-btn dl-wb" login-btn-sina ><b></b>微博登录<b></b></a>                 
+                </div>
+            </section>
+            <section class="login-pt login-pt2">
+                <h1 class="login-tit login-idol">爱豆账号登录<i></i></h1>
+                <div class="login-btn-con">
+                    <div class="login-form">
+                        <form class="form-login" method="post" action="http://user.idol001.com/web_login.php?action=login_idol" target="form_post">
+                            <div class="login-wr">
+                                <label for="username" class="login-lb">账号</label>
+                                <input type="text" class="login-ip" id="username" name="username"/>
+                            </div>
+                            <div class="login-wr">
+                                <label for="password" class="login-lb">密码</label>
+                                <input type="password" class="login-ip" id="password" name="password"/>
+                            </div>
+                            <div class="login-wr" >
+                                <p class="login-error" style="display:none">帐号不存在或者密码错误</p>
+                                <a href="javascript://" onclick="$('.form-login').submit()" class="btn-login">登录</a>
+                            </div>
+                        </form>
+                    </div>             
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Logo & Menu -->
+    <header class="header">
+        <div class="header-wr">
+            <hgroup>
+                <h1 class="tit-m"><a href="http://idol001.com/"><i class="ico ico-h1">爱豆</i><span class="des">中国第一粉丝门户</span></a></h1>
+            </hgroup>
+            <nav class="nav">
+                <ul class="lis-nav">
+                    <li class="nav-on"><a href="http://idol001.com/" class="nav-ln">首页</a></li>
+                    <li><a href="http://tv.idol001.com/" class="nav-ln">爱豆TV</a></li>
+                    <li><a href="http://activity.idol001.com/" class="nav-ln">活动汇</a></li>
+                    <li><a href="http://idol001.com/app.html" class="nav-ln">App下载</a></li>
+                </ul>
+            </nav>
+            <div class="dw">
+                <div class="logining" id="login-user" ng-cloak ng-show="!!userinfo">
+                    <a id="login-user-span" class="login-user" ng-if="!!userinfo"><img width="30" height="30" ng-src="{{userinfo.image.thumbnail_pic}}" alt="{{userinfo.response.nickname}}"></a>
+                    <a class="login-exit" href="javascript:void(0)" ng-cloak ng-show="!!userinfo" ng-click="logout()">退出</a>
+                </div>
+                <a class="login-ln" href="javascript:void(0)" id="login-ln" ng-click="showMainLogin=true" ng-show="!userinfo">登录</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="cAlign mainContent_idolHome" id="repContent">
+        <div class="crumbs">
+            <a class="textLink-red" href="http://idol001.com/">首页</a> > 
+            <a class="textLink-red" href="/star/sosi.html">少女时代</a> > 
+            <a class="textLink-red" href="/news/sosi/">新闻列表</a> >
+            新闻详情        </div>
+        
+        <div class="fixedWrapper fixedWrapper-news">
+            <div class="header-right header-right-fixed">
+            	<!-- by xm -->
+            	<!-- begin -->
+                <!-- <div class="header-slogan">
+                    <div class="app">
+                        <img class="app-logo" src="http://misc.web.idol001.com/common/imgs/icon1.png">
+                        <h2 class="tit-app">爱豆</h2>
+                        <p class="app-if">追星必备神器</p>
+                        <p class="app-if">粉丝交友社区</p>
+                    </div>
+                </div>
+                <a style="border:none;" class="downloadLiveroomlist dlBtn-line-s dlBtn-line-s-b dlBtn-line-s-iOS dlBtn-line-s-b-iOS" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23210" rel="external nofollow">
+                    <p>iOS版</p>
+                    <span>下载最新版</span>
+                </a>
+                <a style="border:none;" class="downloadLiveroomlist dlBtn-line-s dlBtn-line-s-b" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23201" rel="external nofollow">
+                    <p>Android版</p>
+                    <span>下载最新版</span>
+                </a> 
+                <a class="slide-code" href="javascript:void(0)"><img src="http://misc.web.idol001.com/common/imgs/slide-code.png"><span>扫一扫下载</span></a>   -->
+				
+				<section class="idol-np-star-home">
+					<div class="idol-np-sh-left">
+						<img src="images/exo_icon.png" />
+						<div class="idol-np-sh-left-text">EXO</div>
+					</div>
+					<div class="idol-np-sh-right">主页&gt;</div>
+					<div class="clearfix"></div>
+				</section>	
+				<section class="idol-np-star-tv">
+					<div class="idol-np-star-tv-top">
+						<div class="idol-np-star-tv-top-left">EXO-TV</div>
+						<div class="idol-np-star-tv-top-right">查看&gt;</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="idol-np-star-tv-content" style="background-image: url('images/tv_image.png')">
+						<div class="idol-np-stc-bottom">
+							<div class="idol-np-stc-bottom-left">
+								<img src="images/audio_play.png" />
+								<div class="idol-np-stc-bl-text">150314 Star King 中字：Amberd...</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="idol-np-recent-schedule">
+					<div class="idol-np-rs-top">
+						<div class="idol-np-rs-top-left">最近行程</div>
+						<div class="idol-np-rs-right">全部行程&gt;</div>
+						<div class="clearfix"></div>
+					</div>
+					<ul class="idol-np-rs-items">
+						<li class="idol-np-rs-item active">
+							<div class="idol-np-rs-item-top">
+								<span class="idol-np-rs-item-time">05-28 21:00</span>
+								<span class="idol-np-rs-item-type">电视剧</span>
+							</div>
+							<div class="idol-np-rs-item-content">EXO-K Baskin Robbins Photocard ...</div>
+						</li>
+						<li class="idol-np-rs-item">
+							<div class="idol-np-rs-item-top">
+								<span class="idol-np-rs-item-time">05-28 21:00</span>
+								<span class="idol-np-rs-item-type">电视剧</span>
+							</div>
+							<div class="idol-np-rs-item-content">EXO-K Baskin Robbins Photocard ...</div>
+						</li>
+						<li class="idol-np-rs-item">
+							<div class="idol-np-rs-item-top">
+								<span class="idol-np-rs-item-time">05-28 21:00</span>
+								<span class="idol-np-rs-item-type">电视剧</span>
+							</div>
+							<div class="idol-np-rs-item-content">EXO-K Baskin Robbins Photocard ...</div>
+						</li>
+					</ul>
+				</section>
+				<section class="idol-np-relative-news">
+					<div class="idol-np-rn-top">
+						<div class="idol-np-rn-top-left">相关新闻</div>
+						<div class="idol-np-rn-top-right">更多新闻&gt;</div>
+						<div class="clearfix"></div>
+					</div>
+					<ul class="idol-np-rn-items">
+						<li class="idol-np-rn-item">
+							<div class="idol-np-rn-item-image">
+								<img src="images/news_image.png" alt="">
+							</div>
+							<div class="idol-np-rn-item-content">[新闻]150509 吴亦凡
+在Met Ball晚宴与孙菲
+菲合影
+</div>
+                            <div class="clearfix"></div>
+						</li>
+						<li class="idol-np-rn-item">
+							<div class="idol-np-rn-item-image">
+								<img src="images/news_image.png" alt="">
+							</div>
+							<div class="idol-np-rn-item-content">[新闻]150509 吴亦凡
+在Met Ball晚宴与孙菲
+菲合影
+</div>
+                            <div class="clearfix"></div>
+						</li>
+						<li class="idol-np-rn-item">
+							<div class="idol-np-rn-item-image">
+								<img src="images/news_image.png" alt="">
+							</div>
+							<div class="idol-np-rn-item-content">[新闻]150509 吴亦凡
+在Met Ball晚宴与孙菲
+菲合影
+</div>
+                            <div class="clearfix"></div>
+						</li>
+					</ul>
+				</section>
+				<!-- end -->
+            </div>
+        </div>
+        
+        <div class="liveRoom card-2column card-left">
+							<div class="news-article">
+					<h1 class="news-title">[少女时代][新闻]150925 Yuri《邻家英雄》第一次剧本研读会现场公开</h1>
+					<div class="news-info clearfix">
+						<span>2015-09-25 17:37:33</span>
+						<span>来源：爱豆APP</span>					</div>
+
+					<div class="article-detail">
+						<p>OCN新剧《邻家英雄》剧组第一次剧本研读会现场照片公开。</p><p>Yuri将会在电视剧中饰演一个喜欢冒险、在多个国家转换不同身份执行秘密任务，为了任务可以舍弃爱情的角色，是一个邻家英雄。</p><p>《邻家英雄》将会在明年初播放，这也是Yuri继电视剧《时尚王》之后时隔4年回归电视荧屏，期待Yuri的精彩表现！</p><p><img _id="5605154c7a117392398d1d17" src="http://img.idol001.com/origin/2015/09/25/02ca7019e5ef754e105319fcc0111f7b1443173707.jpg" _src="http://img.idol001.com/origin/2015/09/25/02ca7019e5ef754e105319fcc0111f7b1443173707.jpg"/></p><p>参考：《邻家英雄》百度百科</p>
+					</div>
+					
+										<div class="article-editor">
+						<p>整理者：standBYme</p>
+						<!-- JiaThis Button BEGIN --><!--分享组件-->
+						<div class="jiaWrapper clearfix">
+							<div class="jiathis_style_24x24">
+								<a class="jiathis_button_qzone"></a>
+								<a class="jiathis_button_tsina"></a>
+								<a class="jiathis_button_tqq"></a>
+								<a class="jiathis_button_weixin"></a>
+								<a class="jiathis_button_renren"></a>
+								<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+								<!--<a class="jiathis_counter_style"></a>-->
+							</div>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1406185742361716" charset="utf-8"></script>
+						</div>
+						<!-- JiaThis Button END -->
+					</div>
+					
+					
+				</div>
+				
+				<!-- by xm -->
+                <!-- begin -->
+
+				<!-- <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3462420625" type="text/javascript" charset="utf-8"></script>
+                <wb:comments url="http://idol001.com/news/sosi/detail/560515dd7a117333148b9e75/" fontsize="14" border="N" width="auto" skin="silver" appkey="3462420625"></wb:comments> --><!--微博评论箱-->
+             
+
+                <div class="idol-lead-section">
+                    <div class="idol-lead-section-main">
+                        <div class="idol-lead-download">
+                            <ul class="idol-app-intro">
+                                <li class="idol-ai-figure">
+                                    <img src="images/app_feature_1.png">
+                                    <div class="idol-ai-figure-text">一手，独家信息</div>
+                                </li>   
+                                <li class="idol-ai-figure">
+                                    <img src="images/app_feature_2.png">
+                                    <div class="idol-ai-figure-text">直播清晰流畅</div>
+                                </li>   
+                                <li class="idol-ai-figure">
+                                    <img src="images/app_feature_3.png">
+                                    <div class="idol-ai-figure-text">INS，推特，动态</div>
+                                </li> 
+                                <li class="idol-ai-figure">
+                                    <img src="images/app_feature_4.png">
+                                    <div class="idol-ai-figure-text">图集，视频，行程等</div>
+                                </li>     
+                                <div class="clearfix"></div>
+                            </ul>
+                            <section class="idol-app-download">
+                                <div class="idol-app-download-left">
+                                    <div class="idol-adl-icon">
+                                        <img src="images/app_download_icon.png">
+                                    </div>
+                                    <div class="idol-adl-slogan">
+                                        <div class="idol-adl-slogan-title">爱豆APP</div>
+                                        <div class="idol-adl-slogan-rate">
+                                            <img src="images/app_rate.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="idol-app-download-ios">
+                                    <img src="images/apple_icon.png" alt="">
+                                    <div class="idol-app-download-ios-text">IOS下载</div>
+                                </div>
+                                <div class="idol-app-download-android">
+                                    <img src="images/android_icon.png" >
+                                    <div class="idol-app-download-android-text">Android下载</div>
+                                </div>
+                                <div class="idol-app-download-qrcode">
+                                    <img src="images/app_qrcode.png" />
+                                    <div class="idol-app-download-qrcode-text">扫一扫下载</div>
+                                </div>
+                                <div class="clearfix"></div>    
+                            </div>          
+                        </div>
+                        <div class="idol-lead-comment">
+                            <div class="idol-lead-comment-top">
+                                <div class="idol-lead-comment-num">0评论</div>
+                                <div class="idol-lead-comment-info">
+                                    <div class="idol-arrow-up"></div>
+                                    <div class="idol-lead-comment-info-text">评论互动请下载爱豆APP</div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- <ul class="idol-lead-comment-items">
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="">
+                                    </div>
+                                    <div class="idol-lead-comment-right">
+                                        <div class="idol-lead-comment-right-top">
+                                            <div class="idol-lead-comment-rt-nickname">鹿晗生猴子</div>
+                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="idol-lead-comment-right-content">说真的，我觉得这个圈子有傻子有骗子，有骚人有贱人，还真就没有老实人。这年头，娱乐圈里说谁是老实人，绝对是句骂人话。</div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </li>
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-left">
+                                        <img src="images/comment_default_portrait.png" alt="">
+                                    </div>
+                                    <div class="idol-lead-comment-right">
+                                        <div class="idol-lead-comment-right-top">
+                                            <div class="idol-lead-comment-rt-nickname">鹿晗生猴子</div>
+                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="idol-lead-comment-right-content">我爸是李刚，我表示呵呵，然并卵</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="">
+                                    </div>
+                                    <div class="idol-lead-comment-right">
+                                        <div class="idol-lead-comment-right-top">
+                                            <div class="idol-lead-comment-rt-nickname">鹿晗生猴子</div>
+                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="idol-lead-comment-right-content">说真的，我觉得这个圈子有傻子有骗子，有骚人有贱人，还真就没有老实人。这年头，娱乐圈里说谁是老实人，绝对是句骂人话。</div>
+                                        <div class="idol-lead-comment-reply">
+                                            <div class="idol-lead-comment-reply-less-btn">8条回复</div>
+                                            <ul class="idol-lead-comment-reply-items">
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_1.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">鹿晗吃炫迈</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">李荣浩可是个老实人祝福！！！</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="idol-lead-comment-reply-more-btn">展开回复</div>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="">
+                                    </div>
+                                    <div class="idol-lead-comment-right">
+                                        <div class="idol-lead-comment-right-top">
+                                            <div class="idol-lead-comment-rt-nickname">鹿晗生猴子</div>
+                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="idol-lead-comment-right-content">然后我大胆的说了句，女人何苦要这么为难自己，我是你闺蜜的男友，我们要有难同当，有需要我帮你解决嘛，何必呢？女友闺蜜问：“双妃</div>
+                                        <div class="idol-lead-comment-reply">
+                                            <div class="idol-lead-comment-reply-less-btn active">8条回复</div>
+                                            <ul class="idol-lead-comment-reply-items">
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_1.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">鹿晗吃炫迈</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">李荣浩可是个老实人祝福！！！</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                                <li class="idol-lead-comment-reply-item">
+                                                    <div class="idol-lead-comment-item-left">
+                                                        <img src="images/reply_user_portrait_2.png" alt="">
+                                                    </div>
+                                                    <div class="idol-lead-comment-right">
+                                                        <div class="idol-lead-comment-right-top">
+                                                            <div class="idol-lead-comment-rt-nickname">根本停不下来</div>
+                                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="idol-lead-comment-right-content">这个女人你也要？！悲催！女人都死光了么？？？</div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="idol-lead-comment-reply-more-btn">展开所有回复（36）</div>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-left">
+                                        <img src="images/comment_user_portrait.png" alt="">
+                                    </div>
+                                    <div class="idol-lead-comment-right">
+                                        <div class="idol-lead-comment-right-top">
+                                            <div class="idol-lead-comment-rt-nickname">鹿晗生猴子</div>
+                                            <div class="idol-lead-comment-rt-time">2015-09-24  15:11:02</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="idol-lead-comment-right-content">说真的，我觉得这个圈子有傻子有骗子，有骚人有贱人，还真就没有老实人。这年头，娱乐圈里说谁是老实人，绝对是句骂人话。</div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </li>
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-no-more">没有更多评论了</div>
+                                </li>
+                                <li class="idol-lead-comment-item">
+                                    <div class="idol-lead-comment-item-loading-more">
+                                        <img src="images/comment_loading_more.png" />
+                                        <div>正在加载</div>
+                                    </div>
+                                </li>
+                            </ul> -->
+                            <div class="idol-lead-comment-nothing">
+                                暂无评论，快来抢沙发~
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+			        </div>
+        		<!-- end card 新闻detail -->
+        		<!-- by xm -->
+        		<!-- begin -->
+		        <!-- <div class="liveRoom card-2column card-left moreNews">
+                                    <div class="card-head">
+                                        <a class="card-title card-tv-title" href="http://idol001.com/star/sosi.html" target="_blank" title="少女时代">少女时代</a>
+                                                        <div class="cBoth"></div>
+                                    </div>
+                                                    <ul class="moreNews-list">
+                                        <li><a class="textLink-red" href="/news/sosi/detail/560fab267a1173ed568bf86d/">[分享]151003 naver九月份搜索量排行榜 少女时代榜上有名</a></li>
+                                        <li><a class="textLink-red" href="/news/sosi/detail/560fa6b77a1173f46f8bdf29/">[新闻]151003 Yuri最新画报公开 与机车的完美结合帅气逼人</a></li>
+                                        <li><a class="textLink-red" href="/news/sosi/detail/560f823b7a11734c388b5915/">[新闻]151003 剪刀手Sunny复出 《隐藏歌手4》合照公开</a></li>
+                                        <li><a class="textLink-red" href="/news/sosi/detail/560f665319dc68082f8b4569/">[新闻]151003 泰妍INS更新《I》M/V preview影像 亲自宣传的小可爱~</a></li>
+                                        <li><a class="textLink-red" href="/news/sosi/detail/560f5cd37a1173657e8c210c/">[新闻]151003 金发孝渊微博晒自拍 可爱炸裂：大家好～</a></li>
+                                        <li><a class="textLink-red" href="/news/sosi/detail/560f58317a11734c388b540a/">[新闻]151003 专辑拍摄中的小乐趣 徐室长与泰妍大玩错位照</a></li>
+                                    </ul>
+                                                </div> -->
+		    <!-- end -->  
+        <div class="cBoth"></div>         
+    </div>
+    <!-- by xm -->
+    <!-- begin -->
+
+    <!-- <footer class="footer">
+    <div class="follow-pt">
+        <p class="follow-if">关注我们</p>
+        <ul class="lis lis-follow">
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5069474597" class="follow-ln" rel="external nofollow">爱豆APP</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5471793815" class="follow-ln" rel="external nofollow">爱豆TV</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/fengwotiyu" class="follow-ln" rel="external nofollow">爱豆韩流社区</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5069780070" class="follow-ln" rel="external nofollow">爱豆华语社区</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5348889275" class="follow-ln" rel="external nofollow">IDOLfor-EXO</a></li>
+            <li class="follow-it follow-weixin">
+                <b class="ico-line"></b>
+                <a href="javascript:void(0)" class="follow-ln" onmouseover="document.getElementById('follow-code').style.display=''" onmouseout="document.getElementById('follow-code').style.display='none'">微信公众号</a>
+                <div class="follow-code" style="display:none" id="follow-code">
+                    <img src="http://tv.idol001.com/img/QR_wechat.png" width="86" height="86" alt="微信公众号">
+                    <span class="ico-arrow"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <p class="company">深圳市爱豆网络技术有限公司 </p>
+    <p class="company-eng"> IDOL NETWORK</p>
+    
+    <div class="f-nav">
+        <a target="_blank" href="http://idol001.com/about.html">关于我们</a>
+        <span>|</span>
+        <a target="_blank" href="http://idol001.com/join.html">加入我们</a>
+    </div>
+    
+    <p class="company-if">© 2013－2015 idol001.com, all rights reserved   粤ICP备12015719号</p>
+    </footer> -->
+
+    <div class="idol-news-footer">
+        <div class="idol-news-footer-content">
+            <div class="idol-nfc-main">
+                <div class="idol-nfc-main-left">
+                    <div class="idol-nfc-main-left-title">关注我们</div>
+                    <div class="idol-nfc-main-left-media">
+                        <div class="idol-nfc-ml-media-weibo">
+                            <div class="idol-nfc-mlm-weibo-icon">
+                                <img src="images/app_footer_weibo.png" />
+                            </div> 
+                            <ul class="idol-nfc-mlm-weibo-items">
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/u/5069474597" target="_blank">爱豆App</a></li>
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/u/5471793815" target="_blank">爱豆TV</a></li>
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/fengwotiyu" target="_blank">爱豆韩流社区</a></li>
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/u/5069780070" target="_blank">爱豆华语社区</a></li>    
+                            </ul>   
+                        </div>
+                        <div class="idol-nfc-ml-media-weixin">
+                            <div class="idol-nfc-mlm-weixin-icon">
+                                <img src="images/app_footer_weixin.png" />
+                            </div> 
+                            <div class="idol-nfc-mlm-weixin-des">
+                                <div class="idol-nfc-mlm-weixin-des-text">爱豆公众号</div>
+                                <img src="images/app_footer_qrcode.png" />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>    
+                </div>
+                <div class="idol-nfc-main-right">
+                    <div class="idol-nfc-main-right-container">
+                        <div class="idol-nfc-main-right-logo">
+                            <img src="images/app_footer_logo.png" />
+                        </div>    
+                        <div class="idol-nfc-company-ch-zn">深圳市爱豆网络技术有限公司</div>
+                        <div class="idol-nfc-company-en">IDOL NETWORK</div>
+                        <div class="idol-nfc-main-right-bottom">
+                            <a class="idol-nfc-about" href="http://idol001.com/about.html" target="_blank">关于我们</a>
+                            <div class="idol-nfc-about-split"></div>
+                            <a class="idol-nfc-contact" href="http://idol001.com/contact.html" target="_blank">联系我们</a>
+                            <div class="clearfix"></div>
+                        </div>    
+                    </div> 
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>    
+        </div>
+        <div class="idol-news-footer-copyright">
+            © 2013－2015 idol001.com, all rights reserved 粤ICP备12015719号
+        </div>
+    </div>
+
+    <!-- end -->
+
+
+
+	<!-- 引导浮层 on 2015-3-19 -->
+	<div class="guide-dialog" style="display:none;" id="guide-dialog">		
+		<div class="guide-dialog-con">
+			<h4>爱豆APP-追星必备神器</h4>
+			<a class="close-btn" href="javascript://" onclick="closeDialog()"></a>
+			<ul class="guide-list">
+				<li class="li1"><b></b>随时追踪行程</li>
+				<li class="li2"><b></b>高清流畅直播</li>
+				<li class="li3"><b></b>美图视频搜集</li>
+				<li class="li4"><b></b>亲密家人互动</li>
+			</ul>
+			<div class="dl-div">
+				<strong class="ico-lg">爱豆APP</strong>
+				<div class="guide-btn-con">
+					<a class="dl-btn dl-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200" rel="external nofollow"><b></b>Android版<b></b></a>
+					<a class="dl-btn dl-iPhone" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23209" rel="external nofollow"><b></b>iPhone版<b></b></a>					
+				</div>
+				<div class="qr-wp">
+					<img alt="安卓二维码" src="http://img.idol001.com/web_img/qrcode_yd.png"/>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!--END 引导浮层-->
+
+	<!-- 引导浮层 on 2015-3-19 -->
+	<div class="guide-tips" style="display:none;" id="guide-tips">
+		<h4>爱豆APP-追星必备神器</h4>
+		<a class="close-btn" href="javascript://" onclick="closeDialogTips();"></a>
+		<div class="dl-div">
+			<div class="qr-wp">
+				<img alt="安卓二维码" src="http://img.idol001.com/web_img/qrcode_yd.png"/>
+			</div>
+			<div class="guide-btn-con">
+				<a class="dl-btn dl-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200" rel="external nofollow"><b></b>Android版<b></b></a>
+				<a class="dl-btn dl-iPhone" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23209" rel="external nofollow"><b></b>iPhone版<b></b></a>					
+			</div>
+		</div>
+		<p class="p1"><em></em>门票专辑，定期大派送</p>
+		<p class="p2"><em></em>还有明星见面机会呦~</p>
+	</div>
+	<!--END 引导浮层-->
+        
+</body>
+<div style="display: none;"><script language="javascript" type="text/javascript" src="http://js.users.51.la/9855399.js"></script><noscript><a href="http://www.51.la/?9855399" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/9855399.asp" style="border:none" /></a></noscript></div>
+</html>
+<script>
+function logout() {
+    Common_Tool.delCookie('PHPSESSID');
+    $('#login-user').hide();
+    $('#login-user-span').html('');
+    $('#login-ln').show();
+}
+
+$.getJSON("http://user.idol001.com/weibo_callback.php?callback=?", function(response){
+    $('#login-user').show();
+    try{
+        $('#login-user-span').html('<img width="30" height="30" src="'+response.image.thumbnail_pic+'" alt="'+response.nickname+'">');
+    }catch(e){
+        $('#login-user-span').html('<span class="login-exit" href="javascript:void(0)">'+response.nickname+'</span>');
+    }
+    $('#login-ln').hide();
+});
+</script>
+
+<script type="text/javascript">
+    var winWidth = 0; 
+    var winHeight = 0; 
+    function findDimensions() //函数：获取尺寸 
+    {
+        //获取窗口宽度 
+        if (window.innerWidth) 
+            winWidth = window.innerWidth; 
+        else if ((document.body) && (document.body.clientWidth)) 
+            winWidth = document.body.clientWidth; 
+        //获取窗口高度 
+
+        if (window.innerHeight) 
+            winHeight = window.innerHeight; 
+        else if ((document.body) && (document.body.clientHeight)) 
+            winHeight = document.body.clientHeight; 
+        //通过深入Document内部对body进行检测，获取窗口大小 
+        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) 
+        { 
+            winHeight = document.documentElement.clientHeight; 
+            winWidth = document.documentElement.clientWidth; 
+        } 
+
+        document.getElementById("repContent").style.minHeight = winHeight - 274 + "px";
+    }
+    findDimensions(); 
+    //调用函数，获取数值 
+    window.onresize=findDimensions; 
+</script>
+<script>
+function closeDialog(){
+	document.getElementById("guide-dialog").style.display="none";
+	Common_Tool.setCookie("guide-dialog",1,24*3600*1000);
+}
+if(Common_Tool.getCookie("guide-dialog")!=1){
+	document.getElementById("guide-dialog").style.display="";
+}
+function closeDialogTips(){
+	document.getElementById("guide-tips").style.display="none";
+	Common_Tool.setCookie("guide-tips",1,24*3600*1000);
+}
+if(Common_Tool.getCookie("guide-tips")!=1){
+	document.getElementById("guide-tips").style.display="";
+}
+</script>

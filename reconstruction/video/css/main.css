@@ -1,0 +1,212 @@
+.clearfix{
+	clear: both;
+}
+a{
+    color: black;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(17, 141, 222, 0);
+}
+.tab-nav li{
+	width: 33.33% !important;
+}
+.tab-nav .tab-nav-comment:before{
+	background-image: url(../images/comment_tab_inactive.png);
+}
+.tab-nav .tab-nav-comment.on:before{
+	background-image: url(../images/comment_tab_active.png);
+}
+.idol-play-info{
+	font-size: 0.903rem;
+    line-height: 1.667rem;
+}
+.idol-play-info-actor{
+	margin-left: 0.625rem;
+    border-top: 1px solid #f0f0f0;
+    color: #666;
+    font-size: 0.833rem;
+    line-height: 1.319rem;
+    padding: 0.694rem 0;	
+}
+.idol-play-info-more{
+	font-size: 1.5rem;
+    color: #666;
+    text-align: center;	
+}
+
+
+.idol-comment-info{
+    padding: 0.9375rem 0.9375rem 0 0.9375rem;	
+}
+.idol-comment-top{
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.864rem 0;
+}
+.idol-comment-top-num{
+    float: left;
+    font-size: 0.972rem;
+    line-height: 0.83rem;
+    color: #333333;
+}
+.idol-comment-top-info{
+    float: right;
+    width: 50%;
+    text-align: center;
+    background-color: #f52473;
+    color: #ffffff;
+    border-radius: 0.347rem;
+    height: 1.736rem;
+    line-height: 1.736rem;
+}
+.idol-comment-lists{
+
+}
+.idol-comment-item{
+    border-bottom: 1px solid #f0f0f0;
+    padding-top: 0.694rem;
+    padding-bottom: 1.319rem;
+}
+.idol-comment-item-top{
+
+}
+.idol-comment-item-left{
+    float: left;
+    color: #666666;
+}
+.idol-comment-item-img{
+    float: left;
+    width: 1.736rem;
+    height: 1.736rem;
+}
+.idol-comment-item-left-nickname{
+    float: left;
+    margin-left: 0.556rem;
+    font-size: 0.83rem;
+    line-height: 2rem;
+}
+.idol-comment-item-time{
+    float: right;
+    color: #999999;
+    font-size: 0.694rem;
+    line-height: 2rem;
+}
+.idol-comment-item-content{
+    color: #333333;
+    padding-left: 2.292rem;
+    line-height: 1.389rem;	
+}
+.idol-comment-more{
+    text-align: center;
+    height: 2.778rem;
+    margin-top: 0.694rem;
+    line-height: 2.778rem;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    border-radius: 0.139rem;
+}
+.idol-comment-loading-more-icon{
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.idol-comment-more-text{
+    color: #999999;
+    margin-top: 0.417rem;
+    font-size: 0.833rem;	
+}
+.idol-comment-nothing-info{
+	color: #333333;
+	font-size: 0.972rem;
+	text-align: center;
+	width: 100%;
+	padding: 2.639rem 0;
+}
+.idol-online-movie{
+    padding: 0 0.9375rem;
+}
+.idol-online-movie.history{
+    margin-top: 3.819rem;
+}
+.idol-online-movie-items{
+
+}
+.idol-online-movie-item{
+    background-color: #f0f0f0;
+    height: 4.167rem;
+    margin-bottom: 0.347rem;
+    border-radius: 0.139rem;
+    padding-left: 0.694rem;
+}
+.idol-online-movie-item-title{
+    color: #333;
+    font-size: 0.972rem;
+    line-height: 1.667rem;
+    padding-top: 0.417rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.idol-online-movie-item-content{
+    color: #666;
+    font-size: 0.833rem;
+    line-height: 1.667rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.idol-online-movie-history-btn{
+    font-size: 0.972rem;
+    height: 2.778rem;
+    line-height: 2.778rem;
+    color: #333;
+    text-align: center;
+    margin-top: 1.389rem;
+    border-radius: 0.139rem;
+    background-color: #f0f0f0;
+}
+
+.idol-loading-more{
+    padding: 1.181rem 0;
+    text-align: center;
+}
+.idol-loading-more-icon{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.idol-loading-more-text{
+    color: #999999;
+    margin-top: 0.417rem;
+    font-size: 0.833rem;    
+}
+.nav {
+    background: #ffebf3;
+    box-shadow: 0 1px 1px rgba(255, 72, 141, 0.3);
+    padding: 0.5rem 3.5%;
+    font-size: 0.875rem;
+    line-height: 1.6875rem;
+    position: relative;
+    z-index: 2;
+}
+.header-fix, .nav-fix, .route-fix {
+    position: fixed;
+    width: 100%;
+}
+.nav-fix {
+    top: 2.65625rem;
+}
+.breadcrumb-it {
+    float: left;
+}
+.breadcrumb-it:after {
+    content: ">";
+    margin: 0 0.5rem;
+}
+.breadcrumb-it:last-child:after {
+    content: "";
+}
+.breadcrumb-ln {
+    display: inline-block;
+    padding: 0 0.25rem;
+}
+.breadcrumb-it:first-child .breadcrumb-ln {
+    padding-left: 0;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta id="idol-viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<title>爱豆APP-下载</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="idol-download-container">
+	<img src="images/download_bg.png" class="idol-download-container-bg">
+	<!-- <a class="idol-download-btn" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200">立即下载</a> -->
+	<div class="idol-download-btn">
+		<a class="idol-download-btn-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200">Android下载</a>
+		<a class="idol-download-btn-ios" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23209">iOS下载</a>
+		<div class="clearfix"></div>
+	</div>
+	<section class="idol-download-footer">
+		<div class="idol-download-footer-chinese">爱豆_中国第一粉丝门户</div>
+		<div class="idol-download-footer-english">www.idol001.com</div>		
+	</section>
+</div>
+<script type="text/javascript">
+	function getWindowWidth(){
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    }
+    var scale = getWindowWidth() / 720;
+    document.getElementById('idol-viewport').setAttribute("content", "width=device-width,initial-scale="+scale+",maximum-scale="+scale+",user-scalable=no")
+</script>		
+</body>
+</html>

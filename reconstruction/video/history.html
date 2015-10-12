@@ -1,0 +1,584 @@
+<html ng-app="IdolVideo" class="ng-scope"><head><script src="http://id.jiathis.com/id.php?u=http%3A%2F%2Ftv.idol001.com%2Fvideo_mobile%2F556726d87a117300428b4754.html&amp;t=%E6%88%91%E7%9A%84%E9%82%BB%E5%B1%85%E6%98%AFEXO%E9%9F%A9%E5%89%A7%E5%85%A8%E9%9B%86%20%E6%88%91%E7%9A%84%E9%82%BB%E5%B1%85%E6%98%AFEXO%E5%9C%A8%E7%BA%BF%E8%A7%82%E7%9C%8B%20-%20%E7%88%B1%E8%B1%86%E5%BD%B1%E8%A7%86%E5%BA%93&amp;r=http%3A%2F%2Ftv.idol001.com%2Ftelevision_search.html&amp;k=&amp;s=&amp;time=1443964212834" charset="utf-8"></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}</style>
+
+	<meta charset="utf-8">
+	<title>我的邻居是EXO韩剧全集 我的邻居是EXO在线观看 - 爱豆影视库</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="Description" content="主演:朴灿烈，文佳煐，都暻秀，边伯贤，吴世勋，张艺兴，金珉锡，金钟大，金钟仁，金俊勉，黄子韬，全秀珍，张宥尚
+
+">
+    <meta name="keywords" content="我的邻居是EXO,韩剧,在线观看,下载,爱豆,爱豆APP,爱豆TV,idol,偶像,明星,直播,动态">
+    
+	<meta name="format-detection" content="telephone=no, email=no">
+	<link rel="stylesheet" href="http://misc.web.idol001.com/tv/video/css/style.css?date=201507281641">
+
+	<!-- by xm -->
+	<!-- begin -->
+	<link rel="stylesheet" href="css/main.css">
+	<!-- end -->
+
+	<script charset="utf-8" src="http://trust.baidu.com/vcard/v.js?siteid=6124768&amp;url=http%3A%2F%2Ftv.idol001.com%2Fvideo_mobile%2F556726d87a117300428b4754.html&amp;source=&amp;rnd=1912040774"></script><script src="//hm.baidu.com/hm.js?f8d645bec1af37323ecf4b6f52453b71"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f8d645bec1af37323ecf4b6f52453b71";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <script>
+var G_COLLECTION_ID = '556726d87a117300428b4754';
+var unique = (function () {
+        var time= (new Date()).getTime()+'-', i=0;
+        return function () {
+           return time + (i++);
+        }
+    })();
+
+    var imgLog = function (url) {
+        var data = window['imgLogData'] || (window['imgLogData'] = {});
+        var img = new Image();
+        var uid = unique();
+        img.onload = img.onerror = function () {//销毁一些对象
+            img.onload = img.onerror = null;
+            img = null;
+            delete data[uid];
+        }
+        img.src = url + '&_uid=' + uid;
+    };
+    </script>
+
+</head>
+<body><link href="http://v3.jiathis.com/code/css/jiathis_share.css" rel="stylesheet" type="text/css"><iframe frameborder="0" style="position: absolute; display: none; opacity: 0;"></iframe><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div><iframe frameborder="0" src="http://v3.jiathis.com/code/jiathis_utility.html" style="display: none;"></iframe>
+	<div class="wraper ng-scope" ng-controller="VideoDetail" ng-show="!!current_video">
+		<link rel="stylesheet" href="http://misc.web.idol001.com/activity/css/login-mobile.css">
+<link rel="stylesheet" href="http://misc.web.idol001.com/tv/video/css/menu.css?date=201507300839">
+<script type="text/javascript" src="http://misc.web.idol001.com/www/js/jquery.js"></script>
+<script type="text/javascript" src="http://tv.idol001.com/js/angular-1.2.9/angular.min.js"></script>
+<script type="text/javascript" src="http://tv.idol001.com/js/angular-1.2.9/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="http://misc.web.idol001.com/tv/video/ng-infinite-scroll.min.js"></script>
+<script>
+document.domain = 'idol001.com';
+var IdolVideo = angular.module("IdolVideo", ["IdolVideo.ctrl", "IdolVideo.directive", "IdolVideo.filter", "IdolVideo.service", "ngSanitize", "infinite-scroll"], function ($compileProvider) {
+	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|idolapp):/);
+});
+
+var IdolVideoCtrl = angular.module("IdolVideo.ctrl", []);
+var IdolVideoDirective = angular.module("IdolVideo.directive", []);
+var IdolVideoFilter = angular.module("IdolVideo.filter", []);
+var IdolVideoService = angular.module("IdolVideo.service", []);
+
+IdolVideoService.service( 'Video', [ '$rootScope', '$window', '$http', function( $rootScope, $win, $http ) {
+
+this.getRelateVideos = function(){
+	return $http.get("/video_mobile/relate_videos.json");
+}
+
+this.getVideos = function(page){
+	return $http.jsonp("http://data.android.idol001.com:8080/api_moblie_idol_television.php?action=get_television_list&count=12&callback=JSON_CALLBACK&page="+page);
+}
+
+this.getVideoCollection = function(collection_id){
+	return $http.get("/television/"+collection_id+".json");
+}
+
+this.getSearchResults = function(keyword){
+	return $http.jsonp("http://search.idol001.com/search.php?callback=JSON_CALLBACK&q="+keyword);
+}
+
+this.loginCheck = function() {
+	return $http.jsonp("http://user.idol001.com/weibo_callback.php?callback=JSON_CALLBACK");
+}
+
+this.login = function() {
+	location.href = 'https://api.weibo.com/oauth2/authorize?forcelogin=true&client_id=3462420625&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fweibo_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&response_type=code';
+}
+
+this.loginSina = function() {
+	location.href = 'https://api.weibo.com/oauth2/authorize?forcelogin=true&client_id=3462420625&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fweibo_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&response_type=code';
+}
+
+this.loginQQ = function() {
+	location.href = 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101221908&redirect_uri=http%3A%2F%2Fuser.idol001.com%2Fqq_callback.php%3Ffrom%3Dweibo%26redirect_uri%3D'+encodeURIComponent(encodeURIComponent(location.href))+'&state=d29c61ba4166065869216c2111cae4f2&scope=get_user_info,get_simple_userinfo,get_vip_info,get_vip_rich_info,list_album,upload_pic,add_album,list_photo,check_page_fans,get_info,add_t,del_t,add_pic_t,get_repost_list,get_other_info,get_fanslist,get_idollist,add_idol,del_idol,get_tenpay_addr';
+}
+
+}]);
+
+IdolVideoDirective.directive( "timeLeft", [ function() {
+    function link(scope, element, attrs) {
+	    var timeoutId;
+	    var time_left = (attrs.timeLeft - (+new Date))/1000;
+
+	    function updateTimeLeft() {
+	        element.text(timer_elapsed(time_left));
+	    }
+
+	    // start the UI update process; save the timeoutId for canceling
+	    
+        updateTimeLeft(); // update DOM
+
+	}
+
+	function timer_elapsed(ts) {
+		if (ts <= 0) {
+			return '';
+		}   
+	    var dd = parseInt(ts / 60 / 60 / 24, 10);//计算剩余的天数  
+	    var hh = parseInt(ts / 60 / 60 % 24, 10);//计算剩余的小时数  
+	    var mm = parseInt(ts / 60 % 60, 10);//计算剩余的分钟数  
+	    var ss = parseInt(ts % 60, 10);//计算剩余的秒数  
+	    return dd + "天" + hh + "小时" + mm + "分"
+	      // + ss + "秒";
+	}  
+
+	return {
+	    link: link
+	};
+}]);
+
+IdolVideoDirective.directive( "videoType", [ 'Video', function( Video ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            	if (attrs.typeval="2") {
+            		element.html('类型:电视剧');
+            	}else if (attrs.typeval="1") {
+            		element.html('类型:电影');
+            	}else if (attrs.typeval="3") {
+            		element.html('类型:综艺');
+            	}else if (attrs.typeval="4") {
+            		element.html('类型:动漫');
+            	}
+        }
+    }
+}]);
+
+IdolVideoDirective.directive( "updatedesc", [ 'Video', function( Video ) {
+    return {
+        restrict: "E",
+        // replace:true,
+        template : function (tElement, tAttrs) {
+        	if (!!tAttrs.val) {
+        		return '更新至<span class="highlight num"'+tAttrs.val+'</span>集';
+        	} else {
+        		return '未开播';
+        	}
+		}
+    }
+}]);
+
+IdolVideoDirective.directive( "loginBtnSina", [ 'Video', function( Video ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+				Video.loginSina();
+            });
+        }
+    }
+}]);
+
+IdolVideoDirective.directive( "loginBtnQq", [ 'Video', function( Video ) {
+    return {
+        restrict: "A",
+            link: function( scope, element, attrs ) {
+            element.bind( "click", function() {
+                Video.loginQQ();
+            });
+        }
+    }
+}]);
+
+IdolVideoCtrl.controller('VideoIndex', ['$window', '$scope', '$rootScope', '$timeout', 'Video', function($win, $scope, $rootScope, $timeout, Video){
+
+$scope.videos = [];
+$scope.hasMore = true;
+$scope.page = 1;
+
+$scope.myPagingFunction = function(){
+	
+	Video.getVideos($scope.page).success(
+	    function(data, status, header, config){
+	    	$timeout(function() {
+		        
+		        if (data.list.length == 0) {
+		        	$scope.hasMore = false;
+		        }
+
+		        angular.forEach(data.list, function(da,index,array){
+					$scope.videos.push(da);
+				});
+
+		    }, 0);
+	    }
+
+	).error(
+	    function(data){
+	    }
+	);
+
+	$scope.page += 1;
+}
+
+}]);
+
+IdolVideoCtrl.controller('VideoDetail', ['$window', '$scope', '$rootScope', '$timeout', 'Video', '$sce', function($win, $scope, $rootScope, $timeout, Video, $sce){
+
+$scope.video = null;
+$scope.current_video = null;
+$scope.tab = 'line';
+$scope.is_app_browser = /idolapp/i.test(navigator.userAgent);
+$scope.video_html = '';
+$scope.appLink = 'javascript:void(0)';
+$scope.relate_video_list = [];
+$scope.video_timer = null;
+
+Video.getRelateVideos().success(
+    function(data, status, header, config){
+    	$timeout(function() {
+	        $scope.relate_video_list = data;
+	    }, 0);
+    }
+).error(
+    function(data){
+    }
+);
+
+$scope.getThumbnail = function(src) {
+	return src.replace('origin', 'thumbnail');
+}
+
+$win.playVideo = function(){
+    try {
+	    if($scope.current_video.url.indexOf("qiniu")>=0){
+			idolwebviewObject.startPlayer($scope.current_video.url, $scope.current_video.title);
+		}else{
+            idolwebviewObject.startPlayer('http://android.idol001.com/play_m3u8.php?url='+$scope.current_video.url, $scope.current_video.title);
+		}
+    } catch(e) {
+        $scope.video_html = $sce.trustAsHtml($scope.current_video.embed_url);
+    }
+    $scope.sendPlayData();
+}
+
+$win.sendPlayData = function() {
+	imgLog('http://statistic.idol001.com/api_moblie_idol/?action=log_video_mobile_play&platform=web&video_id='+$scope.current_video._id);
+}
+
+function resetCurrentVideo(data) {
+	clearTimeout($scope.video_timer);
+	$scope.appLink = 'idolapp://idol001.com/start?action=video&videoUrl=http://android.idol001.com'+encodeURIComponent('/play_m3u8.php?url='+data.url)+'&videoName='+encodeURIComponent(data.title);
+
+	if (data.publish_type == 1) {//外网播放
+		if ($scope.is_app_browser && /iPhone|iPod/i.test(navigator.userAgent)) {
+	    	// $scope.video_html = $sce.trustAsHtml('<a href="'+'idolapp://idol001.com/start?action=video&videoUrl=http://android.idol001.com'+encodeURIComponent('/play_m3u8.php?url='+data.url)+'&videoName='+encodeURIComponent(data.title)+'" class="ico-play"></a>');
+	    	$scope.video_html = $sce.trustAsHtml($scope.current_video.embed_url);
+	    } else if (typeof $win.idolwebviewObject == 'undefined' || typeof $win.idolwebviewObject.startPlayer == 'undefined') {
+	    	$scope.video_html = $sce.trustAsHtml(data.embed_url);
+	    } else {
+	    	$scope.video_html = $sce.trustAsHtml('<a onclick="playVideo()" href="javascript:void(0)" class="ico-play"></a>');
+	    }
+
+	    if (data.time_limit == 1 && !!data.time_limit_val && !/idolapp/i.test(navigator.userAgent)) {
+	        $scope.video_timer = $timeout(function(){
+	            $scope.video_html = '';
+	        }, data.time_limit_val*60000);
+	    } 
+	} else {//APP播放
+		if ($scope.is_app_browser) {
+			if (/iPad|iPhone|iPod/i.test(navigator.userAgent)) {
+				$scope.video_html = $sce.trustAsHtml('<a onclick="sendPlayData()" href="'+'idolapp://idol001.com/start?action=video&videoUrl=http://android.idol001.com'+encodeURIComponent('/play_m3u8.php?url='+data.url)+'&videoName='+encodeURIComponent(data.title)+'" class="ico-play"></a>');
+			} else {
+				$scope.video_html = $sce.trustAsHtml('<a onclick="playVideo()" href="javascript:void(0)" class="ico-play"></a>');
+			}
+			
+		} else {
+			$scope.video_html = '';
+		}
+	}
+}
+
+$scope.changeCurrentVideo = function(videoid){
+	angular.forEach($scope.video.sublist, function(da,index,array){
+		if (da._id == videoid) {
+			$scope.current_video = da;
+			resetCurrentVideo($scope.current_video);
+		}
+	});
+}
+
+Video.getVideoCollection(G_COLLECTION_ID).success(
+    function(data, status, header, config){
+    	$timeout(function() {
+	        $scope.video = data;
+
+	        if (data.relate_video_list.length > 0) {
+	        	data.sublist.push(data.relate_video_list[0]);
+	        }
+
+	        if (data.sublist.length > 0) {
+	        	$scope.current_video = data.sublist[0];
+
+	        	resetCurrentVideo($scope.current_video);
+	        }
+
+	    }, 0);
+    }
+).error(
+    function(data){
+    }
+);
+
+
+}]);
+
+IdolVideoCtrl.controller('VideoSearch', ['$window', '$scope', '$rootScope', '$timeout', 'Video', function($win, $scope, $rootScope, $timeout, Video){
+
+$scope.search_result = [];
+$scope.loaded = false;
+$scope.isFocus = false;
+
+$('.btn-search').hide();
+
+$scope.getFilterTitle = function(title) {
+	var regexp = new RegExp('('+$scope.keyword+')',"ig");
+	return title.replace(regexp, '<span class="highlight">$1</span>');
+}
+
+$scope.doSearch = function(){
+	if ($.trim($scope.keyword) == '') {
+		alert('请输入影片名称');
+		return false;
+	}
+	$scope.loaded = false;
+	Video.getSearchResults($scope.keyword).success(
+    function(data, status, header, config){
+    	$scope.loaded = true;
+    	$timeout(function() {
+	        $scope.search_result = data.list;
+	    }, 0);
+    }).error(
+	    function(data){
+	    	$scope.loaded = true;
+	    }
+	);
+}
+
+}]);
+
+IdolVideoCtrl.controller('VideoHeader', ['$window', '$scope', '$rootScope', '$timeout', 'Video', function($win, $scope, $rootScope, $timeout, Video){
+
+$scope.showMenu = false;
+$scope.showLogin = false;
+$scope.userinfo = null;
+$scope.tip_show = true;
+
+$scope.preventHide = function($event) {
+	$event.stopPropagation();
+}
+
+$win.loginCallBack = function(userinfo) {
+	$timeout(function() {
+		$scope.userinfo = userinfo;
+	}, 0);
+}
+
+	Video.loginCheck().success(
+    function(data, status, header, config){
+    	$timeout(function() {
+    		$scope.showLogin = false;
+	        $scope.userinfo = data;
+	    }, 0);
+    }).error(
+	    function(data){
+	    	$scope.loaded = true;
+	    }
+	);
+
+}]);
+
+</script>
+<div ng-controller="VideoHeader" class="ng-scope">
+
+<header class="header">
+	<h1 class="logo"><a href="">爱豆·影视库</a></h1>
+	<div class="head-opt">
+		<a href="http://tv.idol001.com/television_search.html" class="btn-search"></a>
+		<a href="javascript:void(0)" ng-click="showMenu=!showMenu" class="btn-menu"></a>
+	</div>
+</header>
+<!-- by xm -->
+<!-- begin -->
+<nav class="nav nav-fix">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-it"><a href="http://m.idol001.com/" class="breadcrumb-ln">影视库</a></li>
+        <li class="breadcrumb-it"><a href="">超人回来了</a></li>
+        <li class="breadcrumb-it"><a href="#" class="breadcrumb-ln">往期综艺</a></li>
+    </ul>
+</nav>
+<!-- end -->
+<div class="pop-menu ng-hide" ng-show="!!showMenu" ng-click="showMenu=!showMenu" style="z-index:9999">
+	<div class="pop-menu-main" ng-click="preventHide($event)">
+		<div class="pop-user-login">
+			<a href="javascript:void(0)" class="pop-avatar"><img ng-src="http://misc.web.idol001.com/tv/video/images/avatar.jpg" alt="" src="http://misc.web.idol001.com/tv/video/images/avatar.jpg"></a>
+			<a href="javascript:void(0)" class="pop-btn-login" ng-show="!userinfo" ng-click="showLogin=true">登录</a>
+			<!-- 已登录 -->
+			<a href="http://activity.idol001.com/mobile/person/" class="pop-user-name ng-binding ng-hide" ng-show="!!userinfo"></a>
+		</div>
+		<ul class="pop-menu-nav">
+			<li><a class="a-home" href="http://m.idol001.com/">首页</a></li>
+			<li><a class="a-vedio on" href="/television.html">影视库</a></li>
+			<li><a class="a-flag" href="http://activity.idol001.com/mobile.php">活动汇</a></li>
+		</ul>
+	</div>
+</div>
+
+<iframe id="form_post" name="form_post" src="about:blank" height="0" width="0" style="display:none"></iframe>
+<div class="guide-tips ng-hide" id="guide-dialog" ng-show="!!showLogin">
+	<div class="guide-dialog-login">
+		<a class="close-btn" href="javascript://" ng-click="showLogin=false"></a>
+		<section class="login-pt login-pt2">
+			<h1 class="login-tit login-idol">爱豆账号登录<i></i></h1>
+			<div class="login-btn-con">
+				<div class="login-form">
+					<form class="form-login ng-pristine ng-valid" method="post" action="http://user.idol001.com/web_login.php?action=login_idol" target="form_post">
+						<div class="login-wr">
+							<label for="username" class="login-lb">账号</label>
+							<input type="text" class="login-ip" id="username" name="username">
+						</div>
+						<div class="login-wr">
+							<label for="password" class="login-lb">密码</label>
+							<input type="password" class="login-ip" id="password" name="password">
+						</div>
+						<div class="login-wr">
+							<p class="login-error" style="display:none">帐号不存在或者密码错误</p>
+							<a href="javascript://" onclick="$('.form-login').submit()" class="btn-login">登录</a>
+						</div>
+					</form>
+				</div>             
+			</div>
+		</section>
+		<section class="login-pt login-pt1">
+			<h1 class="login-tit">一键登录 无需注册</h1>
+			<div class="login-btn-con">
+				<a class="dl-btn dl-qq" login-btn-qq="">QQ登录<b></b></a>
+				<a class="dl-btn dl-wb" login-btn-sina="">微博登录<b></b></a>                 
+			</div>
+		</section>
+	</div>
+</div>
+
+</div>
+<!-- by xm -->
+<!-- begin -->
+
+	<div class="idol-online-movie history">
+		<ul class="idol-online-movie-items">
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+			<li class="idol-online-movie-item">
+				<div class="idol-online-movie-item-title">
+					2015-5-15 第一期：音乐银行 EXO再夺小组冠军
+				</div>
+				<div class="idol-online-movie-item-content">
+					本期主演：金秀贤，金志贤，刘备山，金大洲
+				</div>
+			</li>
+		</ul>
+		<div class="idol-loading-more">
+            <img src="images/comment_loading_more.png" class="idol-loading-more-icon">
+            <div class="idol-loading-more-text">正在加载</div>
+        </div>
+	</div>
+
+<!-- end -->
+</div>
+
+<script>
+    //点击量
+    imgLog('http://statistic.idol001.com/api_moblie_idol/?action=log_video_mobile_collection_view&platform=web&collection_id='+G_COLLECTION_ID);
+</script>	
+
+<script type="text/javascript">
+var jiathis_config = {
+    title:"爱豆 APP 有《我的邻居是EXO》！国内最快速度更新韩剧和综艺片就在爱豆，而且啥都有哦~； APP 观看位置：发现-影视库，APP 下载：http://idol001.com/app.html",
+    summary:"我的邻居是EXO",
+    pic:"http://img.idol001.com/origin/2015/07/18/4c0a87d137d0af751a260ab72e26a3da1437209037.jpg"
+};
+</script>
+
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1374472569394595" charset="utf-8"></script><script type="text/javascript" src="http://v3.jiathis.com/code/plugin.client.js" charset="utf-8"></script>
+
+
+<div style="display: none;"><script language="javascript" type="text/javascript" src="http://js.users.51.la/9855399.js"></script><a href="http://www.51.la/?9855399" target="_blank" title="51.La 网站流量统计系统">网站统计</a>
+<noscript>&lt;a href="http://www.51.la/?9855399" target="_blank"&gt;&lt;img alt="&amp;#x6211;&amp;#x8981;&amp;#x5566;&amp;#x514D;&amp;#x8D39;&amp;#x7EDF;&amp;#x8BA1;" src="http://img.users.51.la/9855399.asp" style="border:none" /&gt;&lt;/a&gt;</noscript></div></body></html>
