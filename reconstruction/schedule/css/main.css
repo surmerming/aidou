@@ -168,10 +168,13 @@
     background-color: #f0f0f0;
     width: 100%;
     margin-top: 1.944rem;
-    height: 4.617rem;    
+    height: 4.617rem;  
+    position: relative;  
 }
 .idol-sdm-download-left{
-    float: left;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .idol-sdm-dl-icon{
     float: left;
@@ -196,7 +199,9 @@
     margin-top: 0.278rem;
 }
 .idol-sdm-dl-download-right{
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .idol-sdm-dl-download-btn{
     width: 7.86rem;
@@ -340,11 +345,12 @@
     }
 }
 .resource-none{
-    padding: 50% 0 0 0 !important;
+    padding-top: 7.5rem;
+    position: relative;
 }
-.resource-none:before{
+/* .resource-none:before{
     top: 50% !important;
-}
+} */
 .idol-online-live-btn{
 	margin: 0.833rem 0;
     background-color: #ff488d;

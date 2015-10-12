@@ -51,6 +51,7 @@
     float: right;
     font-size: 14px;
     line-height: 38px;
+    color: inherit;
 }
 .idol-np-star-tv-content{
     margin-top: 12px;
@@ -71,6 +72,7 @@
 .idol-np-stc-bottom-left>img{
     float: left;
     margin: 4px;  
+    cursor: pointer;
 }
 .idol-np-stc-bl-text{
 	font-size: 14px;
@@ -98,6 +100,7 @@
     float: right;
     font-size: 14px;
     line-height: 38px;
+    color: inherit;
 }
 .idol-np-rs-items{
     margin-top: 6px;
@@ -109,6 +112,10 @@
     font-size: 14px;
     padding-left: 8px;
     border-left: 2px solid #dedede;
+}
+.idol-np-rs-item>a{
+    display: block;
+    color: inherit;
 }
 .idol-np-rs-item.active{
     border-left: 2px solid #ff488d;
@@ -151,12 +158,16 @@
     float: right;
     font-size: 14px;
     line-height: 38px;
+    color: inherit;
 }
 .idol-np-rn-items{
 
 }
 .idol-np-rn-item{
     margin-top: 20px;
+}
+.idol-np-rn-item>a{
+    display: block;
 }
 .idol-np-rn-item-image{
     float: left;
@@ -244,6 +255,8 @@
     margin-top: 30px;
     margin-left: 26px;
     margin-right: 10px;
+    display: block;
+    cursor: pointer;
 }
 .idol-app-download-ios>img{
     width: 34px;
@@ -264,6 +277,8 @@
     line-height: 60px;
     text-align: center;
     margin-top: 30px;
+    display: block;
+    cursor: pointer;
 }
 .idol-app-download-android>img{
     width: 34px;
