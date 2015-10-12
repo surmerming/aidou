@@ -1,5 +1,5 @@
-# �����ع�
+# 爱豆重构
 
-about�����ڰ����Ľ���
+about：关于爱豆
 
-reconstruction: ����ʱ���ع�
+reconstruction: 国庆时做的重构
