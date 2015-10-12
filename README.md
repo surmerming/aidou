@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-# aidou-澶栧寘椤圭洰
-reconstruction to aidou
-=======
-# 爱豆重构
+# 锟斤拷锟斤拷锟截癸拷
 
-about：关于爱豆的介绍
+about锟斤拷锟斤拷锟节帮拷锟斤拷锟侥斤拷锟斤拷
 
-reconstruction: 国庆时的重构
->>>>>>> 鍥藉簡鏃剁殑椤甸潰閲嶆瀯
+reconstruction: 锟斤拷锟斤拷时锟斤拷锟截癸拷
