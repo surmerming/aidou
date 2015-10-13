@@ -24,8 +24,9 @@
 	function getWindowWidth(){
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
-    var scale = getWindowWidth() / 720;
-    document.getElementById('idol-viewport').setAttribute("content", "width=device-width,initial-scale="+scale+",maximum-scale="+scale+",user-scalable=no")
-</script>		
+    var scale = getWindowWidth() / 320;
+    document.getElementById('idol-viewport').setAttribute("content", "width=320,initial-scale="+scale+",maximum-scale="+scale+",user-scalable=no")
+
+</script>
 </body>
 </html>
