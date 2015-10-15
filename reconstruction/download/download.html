@@ -9,23 +9,64 @@
 <body>
 <div class="idol-download-container">
 	<img src="images/download_bg.png" class="idol-download-container-bg">
-	<!-- <a class="idol-download-btn" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200">立即下载</a> -->
 	<div class="idol-download-btn">
-		<a class="idol-download-btn-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200">Android下载</a>
-		<a class="idol-download-btn-ios" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23209">iOS下载</a>
+		<a class="idol-download-btn-item idol-download-btn-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200">
+			<i class="android-icon"></i>
+			<span>Android下载</span>
+		</a>
+		<a class="idol-download-btn-item idol-download-btn-ios" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23209">
+			<i class="ios-icon"></i>
+			<span>iOS下载</span>
+		</a>
 		<div class="clearfix"></div>
 	</div>
-	<section class="idol-download-footer">
-		<div class="idol-download-footer-chinese">爱豆_中国第一粉丝门户</div>
-		<div class="idol-download-footer-english">www.idol001.com</div>		
-	</section>
 </div>
 <script type="text/javascript">
 	function getWindowWidth(){
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
-    var scale = getWindowWidth() / 320;
-    document.getElementById('idol-viewport').setAttribute("content", "width=320,initial-scale="+scale+",maximum-scale="+scale+",user-scalable=no")
+    var posObj = {
+   		top: 240,
+   		fs: 28,
+   		width: 626,
+   		height: 100,
+   		btnWidth: 300,	
+   		bs: 15,
+   		iconAndroidWidth: 54,
+   		iconIosWidth: 50,
+   		iconHeight: 57,
+   		marginRight: 14 	
+    };
+    var windowWidth = getWindowWidth();
+    var initialWidth = 720;
+    if(windowWidth < initialWidth){
+    	var scale = windowWidth / initialWidth;
+    	var downloadBtnEl = document.getElementsByClassName('idol-download-btn')[0];
+    	var downloadBtnItemEl = document.getElementsByClassName('idol-download-btn-item');
+    	var androidIconEl = document.getElementsByClassName('android-icon')[0];
+    	var iosIconEl = document.getElementsByClassName('ios-icon')[0];
+
+    	downloadBtnEl.style.top = posObj.top * scale + "px";
+    	downloadBtnEl.style.fontSize = posObj.fs * scale + "px";
+    	downloadBtnEl.style.width = posObj.width * scale + "px";
+    	downloadBtnEl.style.height = posObj.height * scale + "px";
+    	downloadBtnEl.style.lineHeight = posObj.height * scale + "px";
+    	downloadBtnEl.style.marginLeft = (-posObj.width * scale / 2) + "px";
+
+    	downloadBtnItemEl[0].style.width = posObj.btnWidth * scale + "px";
+    	downloadBtnItemEl[1].style.width = posObj.btnWidth * scale + "px";
+    	downloadBtnItemEl[0].style.borderRadius = posObj.bs * scale + "px";
+    	downloadBtnItemEl[1].style.borderRadius = posObj.bs * scale + "px";
+
+    	androidIconEl.style.width = posObj.iconAndroidWidth * scale + "px";
+    	androidIconEl.style.height = posObj.iconHeight * scale + "px";
+    	androidIconEl.style.marginRight = posObj.marginRight * scale + "px";
+
+		iosIconEl.style.width = posObj.iconIosWidth * scale + "px";
+    	iosIconEl.style.height = posObj.iconHeight * scale + "px";
+    	iosIconEl.style.marginRight = posObj.marginRight * scale + "px";
+
+    }
 
 </script>
 </body>
