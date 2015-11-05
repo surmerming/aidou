@@ -6,14 +6,14 @@
 }
 .idol-header{
 	    width: 100%;
-    height: 87px;
+    height: 3.021rem;
 }
 .idol-header-logo{    
 	display: block;
-    width: 152px;
-    height: 46px;
+    width: 5.28rem;
+    height: 1.6rem;
     float: left;
-    margin: 20px auto auto 25px;
+    margin: 0.694rem auto auto 0.868rem;
 }
 .idol-header-logo>img{
 	    width: 100%;
@@ -21,9 +21,9 @@
 }
 .idol-header-search{
 	    float: right;
-    width: 40px;
-    height: 40px;
-    margin: 23px 33px auto auto;
+    width: 1.389rem;
+    height: 1.389rem;
+    margin: 0.799rem 1.146rem auto auto;
 }
 .idol-header-search>img{
 	width: 100%;
@@ -31,34 +31,66 @@
 }
 .idol-audio{
 	    width: 100%;
-    height: 404px;
+    height: 14.03rem;
     background-color: #323742;
 }
+.idol-audio-loading-image{
+	padding-top: 4.7rem;
+    padding-bottom: 0.5rem;	
+}
+.idol-audio-loading-image>img{
+	width: 4.41rem;
+    height: 3.993rem;
+    margin: 0 auto;
+    display: block;
+}
+.idol-audio-loading-text{
+	color: #1d2532;
+	text-align: center;
+}
 .idol-content{
-	    margin-top: 50px;
+	margin-top: 1.736rem;
 }
-.idol-content-title{}
+.idol-content-title{
+	width: 100%;
+}
 .idol-content-title-text{
-	    margin-left: 30px;
+    margin-left: 1.042rem;
+    color: #9a1f5e;
+    font-size: 1.042rem;
+    float: left;
 }
-.idol-content-title-line{}
+.idol-content-title-right{
+	padding-left: 7.5rem;
+    position: relative;
+    top: 0.5rem;
+}
+.idol-content-title-line{
+    background-color: #D8DEED;
+    height: 1px;
+}
 .idol-content-items{
-	    width: 100%;
+	width: 100%;
     padding: 0 4.86%;
+    font-size: 0.833rem;
+}
+.idol-content-items-line{
+	width: 100%;
 }
 .idol-content-item{
-        height: 90px;
+    height: 3.125rem;
     float: left;
     display: block;
     width: 26.3%;
-    margin-right: 5.55%;
     margin-top: 5.55%;
-    border-radius: 6px;
+    border-radius: 0.208rem;
+    margin-right: 10.55%;
 }
 .idol-content-item-content{
-	    height: 90px;
+    height: 3.125rem;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 0.347rem;
+    margin: 0 auto;
 }
 .item-1{
     background-color: #60CDFF;
@@ -87,50 +119,122 @@
 .item-9{
     background-color: #FEDF7D;
 }
+.idol-content-item:nth-child(3n+3){
+	margin-right: 0;
+}
 .idol-content-item-content>img{
-	float: left;
+	margin: 0.833rem 0 0.833rem 0.556rem;
+}
+.item-1 img{
+	width: 1.458rem;
+    height: 1.458rem;
+}
+.item-2 img{
+    margin-top: 0.923rem;
+    width: 1.563rem;
+    height: 1.285rem;	
+}
+.item-3 img{
+	width: 1.458rem;
+    height: 1.458rem;
+}
+.item-4 img{
+    margin-top: 0.972rem;
+    width: 1.319rem;
+    height: 1.215rem;
+}
+.item-5 img{
+    margin-top: 0.972rem;
+    width: 1.25rem;
+    height: 1.181rem;
+}
+.item-6 img{
+    margin-top: 1.007rem;
+    width: 0.833rem;
+    height: 1.146rem;
+}
+.item-7 img{
+    margin-top: 0.868rem;
+    width: 1.563rem;
+    height: 1.563rem;
+}
+.item-8 img{
+    margin-top: 0.799rem;
+    width: 1.563rem;
+    height: 1.563rem;
+}
+.item-9 img{
+    margin-top: 0.972rem;
+    width: 1.25rem;
+    height: 1.215rem;
 }
 .idol-content-item-content-text{
-	float: left;
+	vertical-align: top;
+    line-height: 3.125rem;
 }
 .idol-bottom{
-	    margin-top: 212px;
+	    margin-top: 7.36rem;
     text-align: center;
     background-color: #2e2f32;
-    height: 60px;
-    line-height: 60px;
+    height: 2.083rem;
+    line-height: 2.083rem;
     color: #5e5e60;
+    font-size: 0.833rem;
 }
 .idol-bottom-item{
 	width: 33.33%;
     float: left;
+    display: block;
 }
-
+.idol-footer-info-icon{
+	width: 0.694rem;
+    height: 0.59rem;
+}
 .idol-content-lists{
 
 }
 .idol-content-list{
     border-bottom: 1px solid #D8DEED;
-    height: 135px;
+    height: 4.688rem;
     display: block;
-    line-height: 135px;
+    line-height: 4.688rem;
+}
+.list-item-1-img{
+    width: 1.11rem;
+    height: 1.11rem;
+    margin: 1.736rem 0.972rem auto 0.972rem;
+}
+.list-item-2-img{
+    width: 1.424rem;
+    height: 0.868rem;
+    margin: 1.875rem 0.833rem auto 0.797rem;
+}
+.list-item-3-img{
+    width: 0.972rem;
+    height: 1.181rem;
+    margin: 1.7rem 0.972rem auto 1.11rem;
+}
+.list-item-4-img{
+    width: 0.938rem;
+    height: 0.833rem;
+    margin: 1.909rem 0.972rem auto 1.146rem;
 }
 .idol-content-list-left{
 	float: left;
 }
 .idol-content-list-left>img{
 	float: left;
-    margin: 50px 10px auto 30px;
 }
 .idol-content-list-text{
 	float: left;
 }
 .idol-content-list-go{
 	float: right;
-	margin-right: 30px;
+	margin-right: 1.042rem;
 }
 .idol-content-list-go>img{
-
+	width: 0.625rem;
+	height: 1.11rem;
 }
 
 
