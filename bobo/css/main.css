@@ -91,6 +91,7 @@
     color: #fff;
     border-radius: 0.347rem;
     margin: 0 auto;
+    position: relative;
 }
 .item-1{
     background-color: #60CDFF;
@@ -123,54 +124,81 @@
 	margin-right: 0;
 }
 .idol-content-item-content>img{
-	margin: 0.833rem 0 0.833rem 0.556rem;
+	/*margin: 0.833rem 0 0.833rem 0.556rem;*/
 }
 .item-1 img{
 	width: 1.458rem;
     height: 1.458rem;
+    left: 0.556rem;
+    top: 0.833rem;
+    position: absolute;
 }
 .item-2 img{
-    margin-top: 0.923rem;
     width: 1.563rem;
-    height: 1.285rem;	
+    height: 1.285rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.923rem;
 }
 .item-3 img{
-	width: 1.458rem;
+    width: 1.458rem;
     height: 1.458rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.833rem;
 }
 .item-4 img{
-    margin-top: 0.972rem;
     width: 1.319rem;
     height: 1.215rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.972rem;
 }
 .item-5 img{
-    margin-top: 0.972rem;
     width: 1.25rem;
     height: 1.181rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.972rem;
 }
 .item-6 img{
-    margin-top: 1.007rem;
     width: 0.833rem;
     height: 1.146rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 1.007rem;
 }
 .item-7 img{
-    margin-top: 0.868rem;
     width: 1.563rem;
     height: 1.563rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.868rem;
 }
 .item-8 img{
-    margin-top: 0.799rem;
     width: 1.563rem;
     height: 1.563rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.799rem;
 }
 .item-9 img{
-    margin-top: 0.972rem;
     width: 1.25rem;
     height: 1.215rem;
+    position: absolute;
+    left: 0.556rem;
+    top: 0.972rem;
 }
 .idol-content-item-content-text{
-	vertical-align: top;
+    vertical-align: top;
     line-height: 3.125rem;
+    left: 2.4rem;
+    position: absolute;
+    font-size: 0.833rem;
+}
+.item-4 .idol-content-item-content-text{
+	line-height: 1.5625rem;
+    display: block;
 }
 .idol-bottom{
 	    margin-top: 7.36rem;
