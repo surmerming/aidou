@@ -1,0 +1,208 @@
+ *{
+    margin:0px ;
+    padding:0px;
+}
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Microsoft YaHei, '微软雅黑', Arial, sans-serif;
+    font-size: 12px;
+    color: #666666;
+}
+ul,li{
+    list-style: none;
+}
+a,a:link,a:visited,a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+.clearfix{
+    clear: both;
+}
+.idol-vote-container{
+        width: 100%;
+    position: relative;
+}
+.idol-page-bg{
+    width: 100%;
+}
+
+.idol-section-1{
+    width: 100%;
+    position: relative;
+}
+.idol-section-main{
+    width: 1000px;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    top: 0;
+    height: 100%;
+} 
+.idol-section-image-bg{
+    width: 100%;
+}
+.idol-section-image-main{
+    max-height: 100%;
+}
+.idol-star{
+    position: absolute;
+    left: 643px;
+    top: 169px;
+}
+.idol-star-portrait-container{
+    position: absolute;
+    left: 13px;
+    top: 10px;
+    background-color: #fff;
+    width: 190px;
+    height: 190px;
+    border-radius: 100%;
+}
+.idol-star-portrait-image{
+    width: 176px;
+    height: 176px;
+    border-radius: 100%;
+    padding: 7px;
+}
+.idol-star-name{
+    position: absolute;
+    width: 190px;
+    left: 18px;
+    top: 207px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;    
+}
+.idol-section-2{
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    height: 500px;
+}
+.idol-section-3{
+    width: 100%;
+    position: relative;
+}
+.idol-section-3 .idol-section-main{
+    top: -3px;
+}
+.idol-apply-step{
+    position: absolute;
+    top: 67px;
+    left: 70px;
+    color: #fff;
+    font-size: 26px;
+}
+.idol-apply-step-item{
+    line-height: 113px;
+}
+.idol-apply-step-item>a{
+    text-decoration: underline;
+    padding: 0 5px;
+    font-size: 18px;
+}
+.idol-apply-step-item-number{
+    font-size: 48px;
+}
+.idol-section-4{
+    width: 100%;
+    height: 677px;
+    position: relative;
+}
+.idol-section-5{
+    width: 100%;
+    position: relative;
+}
+.idol-section-5 .idol-section-main{
+    margin-left: -471px;
+}
+a.idol-vote-portal{
+    left: 14px;
+    color: #fff;
+    font-size: 14px;
+    top: 24px;
+    display: block;
+    float: left;
+    position: absolute;
+
+}
+.idol-vote-footer{
+    position: relative;
+    height: 150px;
+    width: 100%;
+    background-color: #fdf7f6;
+}
+.idol-vote-footer-main{
+    height: 100%;
+    width: 764px;
+    margin: 0 auto;
+}
+.idol-app-download{
+    height: 100%;
+    color: #fff;
+}
+.idol-app-download-left{
+    float: left;
+    padding: 25px 0 25px 20px;
+}
+.idol-adl-icon{
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.idol-adl-icon>img{
+
+}
+.idol-adl-slogan{
+    float: left;
+    margin-left: 12px;
+    margin-top: 9px;
+}
+.idol-adl-slogan-title{
+    font-size: 30px;
+    color: #f12080;
+}
+.idol-adl-slogan-rate{
+    margin-top: 10px;
+}
+.idol-adl-slogan-rate>img{
+
+}
+.idol-app-download-btn{
+    float: left;
+    margin-left: 90px;
+}
+.idol-app-download-ios{
+    background: url('../images/pc/ios_download_icon.png');
+    border-radius: 5px;
+    width: 240px;
+    height: 54px;
+    margin-top: 6px;
+    margin-right: 10px;
+    display: block;
+    cursor: pointer;
+}
+.idol-app-download-android{
+    background: url('../images/pc/android_download_icon.png');
+    border-radius: 5px;
+    width: 240px;
+    height: 54px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    margin-top: 19px;
+}
+.idol-app-download-qrcode{
+    float: left;
+    margin-left: 35px;
+    margin-top: 18px;
+}
+.idol-app-download-qrcode>img{
+
+}
+.idol-app-download-qrcode-text{
+    font-size: 14px;
+    text-align: center;
+}
