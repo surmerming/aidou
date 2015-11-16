@@ -40,28 +40,39 @@ a,a:link,a:visited,a:hover{
     bottom: 0;
 }
 
-.idol-wap-star-portrait{
+.idol-vote-star-bg{
     position: absolute;
-    height: 107px;
-    width: 107px;
-    left: 437px;
-    top: 180px;
+    height: 155px;
+    width: 155px;
+    left: 412px;
+    top: 155px;
     border-radius: 100%;
+}
+.idol-wap-star-portrait{
+    left: 436px;
+    top: 179px;
+    width: 108px;
+    height: 108px;
+    position: absolute;
 }
 .idol-wap-star-name{
     position: absolute;
-    left: 437px;
+    left: 436px;
     top: 307px;
-    width: 107px;
+    width: 108px;
+    height: 30px;
     text-align: center;
     color: #d13b1a;
     font-size: 22px;
 }
 .idol-wap-down-btn{
     display: block;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0;
     height: 150px;
+    width: 100%;
+}
+.idol-wap-down-btn>img{
     width: 100%;
 }

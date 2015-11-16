@@ -2,15 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 	<title>爱豆-中国第一粉丝娱乐平台</title>
 	<link rel="stylesheet" href="css/wap.css" />
 </head>
 <body>
 <div class="idol-vote-container">
 	<img src="images/wap/bg.png" class="idol-page-bg" />
+	<img src="images/wap/star_portrait_bg.png" class="idol-vote-star-bg">
 	<img src="images/wap/star_portrait.png" class="idol-wap-star-portrait" />
 	<div class="idol-wap-star-name">少女时代</div>
-	<a class="idol-wap-down-btn" onclick="if(/iPad|iPhone|iPod/i.test(navigator.userAgent)){location.href='http://click.hm.baidu.com/app.gif?ap=199824&amp;ch=23213'}else{location.href='http://click.hm.baidu.com/app.gif?ap=104915&amp;ch=22267'}return false;" href="https://itunes.apple.com/cn/app/ai-dou/id897899269"></a>
+	<a class="idol-wap-down-btn" onclick="if(/iPad|iPhone|iPod/i.test(navigator.userAgent)){location.href='http://click.hm.baidu.com/app.gif?ap=199824&amp;ch=23213'}else{location.href='http://click.hm.baidu.com/app.gif?ap=104915&amp;ch=22267'}return false;" href="https://itunes.apple.com/cn/app/ai-dou/id897899269">
+		<img src="images/wap/download_btn.png" />
+	</a>
 </div>	
 <script type="text/javascript">
 
@@ -55,6 +59,7 @@
 	var scale = 1;
 	var arr = [];
 
+	var voteStarBgEl = document.getElementsByClassName('idol-vote-star-bg')[0];
 	var starPortraitEl = document.getElementsByClassName('idol-wap-star-portrait')[0];
 	var starNameEl = document.getElementsByClassName('idol-wap-star-name')[0];
 
@@ -66,6 +71,7 @@
 		windowWidth = getWindowWidth();
 		scale = windowWidth / 720;
 
+		adapter(voteStarBgEl);
 		adapter(starPortraitEl);
 		adapter(starNameEl);
 		adapterBottom(downloadBtnEl);
@@ -76,9 +82,10 @@
 		windowWidth = getWindowWidth();
 		scale = windowWidth / 720;
 
-		adapterResize(starPortraitEl, 0);
-		adapterResize(starNameEl, 1);
-		adapterBottomResize(downloadBtnEl, 2);
+		adapterResize(voteStarBgEl, 0);
+		adapterResize(starPortraitEl, 1);
+		adapterResize(starNameEl, 2);
+		adapterBottomResize(downloadBtnEl, 3);
 	};
 
 	
