@@ -53,6 +53,7 @@ a,a:link,a:visited,a:hover{
     top: 179px;
     width: 108px;
     height: 108px;
+    border-radius: 100%;
     position: absolute;
 }
 .idol-wap-star-name{
@@ -75,4 +76,5 @@ a,a:link,a:visited,a:hover{
 }
 .idol-wap-down-btn>img{
     width: 100%;
+    height: 100%;
 }
