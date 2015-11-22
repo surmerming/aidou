@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>爱豆-中国第一粉丝娱乐平台</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+<div class="idol-container">
+	<header class="header">
+	    <div class="header-wr">
+	        <hgroup>
+	            <h1 class="tit-m"><a href="javascript:void(0)"><i class="ico ico-h1">爱豆</i><span class="des">中国第一粉丝门户</span></a></h1>
+	        </hgroup>
+	        <nav class="nav">
+	            <ul class="lis-nav">
+	                <li class="nav-on"><a href="http://idol001.com/" class="nav-ln">首页</a></li>
+	                <li><a href="http://tv.idol001.com/" class="nav-ln">爱豆TV</a></li>
+	                <li><a href="http://activity.idol001.com/" class="nav-ln">活动汇</a></li>
+	                <li><a href="http://idol001.com/app.html" class="nav-ln">下载APP</a></li>
+	            </ul>
+	        </nav>
+	        <div class="dw">
+	            <div class="logining" id="login-user" style="">
+	                <a id="login-user-span" class="login-user"><img width="30" height="30" src="http://thirdapp0.qlogo.cn/qzopenapp/7e23615195608a7d93c7acdd66e246d97ea5df311a8a7e4ce5ddffa7e2621d02/100" alt="surmerming"></a><span class="login-exit" href="javascript:void(0)">surmerming</span>
+	                <a class="login-exit" href="javascript:void(0)" onclick="logout()">退出</a>
+	            </div>
+	            <a class="login-ln" href="javascript:void(0)" id="login-ln" onclick="login()" style="display: none;">登录</a>
+	            
+	        </div>
+	    </div>
+	</header>
+	<div class="idol-play-container">
+		<div class="idol-play-main">
+			<div class="idol-play-breadcrumps">
+				<a href="/">首页</a>
+				<span>&gt;</span>
+				<a href="">视频播放</a>
+			</div>
+			<div class="idol-play-video">
+				<img src="images/play_video.png" />
+				<div class="idol-play-dialog">
+					<div class="idol-play-dialog-close" id="idol-play-dialog-close"></div>
+				</div>
+			</div>
+			<div class="idol-play-video-other">
+				<div class="idol-play-stat">
+					<span class="idol-play-stat-play-times">83.9万</span>
+					<span>次播放</span>
+				</div>
+				<div class="idol-video-title">2015EXO中国爱大歌会官方网络版无删减完整版</div>
+				<div class="idol-video-info">
+					<div class="idol-video-info-left">
+						<img src="images/iqiyi_logo.png" />
+						<div class="idol-video-source-info">
+							<div class="idol-video-source-website">爱奇艺</div>
+							<div class="idol-video-upload-time">上传时间：2015年02月21日</div>
+						</div>
+					</div>
+					<div class="idol-video-info-right">
+						<div class="idol-video-share"></div>
+						<div class="idol-video-share-text">分享</div>
+						<div class="idol-video-share-channel">
+							<a href="#" class="idol-share-qzone"></a>
+							<a href="#" class="idol-share-weibo"></a>
+							<a href="#" class="idol-share-t-weibo"></a>
+							<a href="#" class="idol-share-weixin"></a>
+							<a href="#" class="idol-share-renren"></a>
+							<a href="#" class="idol-share-other"></a>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="idol-video-recommend">
+		<div class="idol-video-recommend-main">
+			<div class="idol-video-recommend-top">
+				<div class="idol-video-recommend-title">推荐播放</div>
+				<div class="idol-video-recommend-select">
+					<input type="checkbox" checked="checked">
+					<span>自动推荐播放视频</span>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="idol-video-recommend-area">
+				<div class="idol-video-recommend-prev" id="idol-video-recommend-prev"></div>
+				<div class="idol-video-recommend-next" id="idol-video-recommend-next"></div>
+				<div class="idol-video-recommend-lists-area">
+				<div class="idol-video-recommend-lists" id="idol-video-recommend-lists">
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_1.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会官
+方网络版无删t</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_2.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会官
+方网t</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_3.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_4.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大t</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_5.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会官
+方网络版无删减完整...</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_1.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会官
+方网络版无删t</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_2.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会官
+方网t</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_3.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_4.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大t</div>
+					</a>
+					<a class="idol-video-recommend-list" href="">
+						<div class="idol-video-recommend-list-info">
+							<img src="images/recommend_5.png" />
+							<div class="idol-video-recommend-stat">
+								<div class="idol-video-recommend-stat-play-count">
+									<span class="number">83.9万</span>
+									<span>次播放</span>
+								</div>
+								<div class="idol-video-recommend-stat-time-length">
+								120分钟		
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="idol-video-recommend-list-title">2015EXO中国爱大歌会官
+方网络版无删减完整...</div>
+					</a>		
+				</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div class="idol-app-intro">
+		<div class="idol-app-intro-bg">
+			<div class="idol-app-intro-main">
+				<div class="idol-app-download">
+					<a class="idol-app-download-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23200"></a>
+					<a class="idol-app-download-ios" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23209"></a>
+					<div class="idol-app-download-qrcode">
+						<div class="idol-app-download-qrcode-text">扫一扫下载</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="idol-news-footer">
+        <div class="idol-news-footer-content">
+            <div class="idol-nfc-main">
+                <div class="idol-nfc-main-left">
+                    <div class="idol-nfc-main-left-title">关注我们</div>
+                    <div class="idol-nfc-main-left-media">
+                        <div class="idol-nfc-ml-media-weibo">
+                            <div class="idol-nfc-mlm-weibo-icon">
+                                <img src="images/app_footer_weibo.png" />
+                            </div> 
+                            <ul class="idol-nfc-mlm-weibo-items">
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/u/5069474597" target="_blank">爱豆App</a></li>
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/u/5471793815" target="_blank">爱豆TV</a></li>
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/fengwotiyu" target="_blank">爱豆韩流社区</a></li>
+                                <li class="idol-nfc-mlm-weibo-item"><a href="http://weibo.com/u/5069780070" target="_blank">爱豆华语社区</a></li>    
+                            </ul>   
+                        </div>
+                        <div class="idol-nfc-ml-media-weixin">
+                            <div class="idol-nfc-mlm-weixin-icon">
+                                <img src="images/app_footer_weixin.png" />
+                            </div> 
+                            <div class="idol-nfc-mlm-weixin-des">
+                                <div class="idol-nfc-mlm-weixin-des-text">爱豆公众号</div>
+                                <img src="images/app_footer_qrcode.png" />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>    
+                </div>
+                <div class="idol-nfc-main-right">
+                    <div class="idol-nfc-main-right-container">
+                        <div class="idol-nfc-main-right-logo">
+                            <img src="images/app_footer_logo.png" />
+                        </div>    
+                        <div class="idol-nfc-company-ch-zn">深圳市爱豆网络技术有限公司</div>
+                        <div class="idol-nfc-company-en">IDOL NETWORK</div>
+                        <div class="idol-nfc-main-right-bottom">
+                            <a class="idol-nfc-about" href="http://idol001.com/about.html" target="_blank">关于我们</a>
+                            <div class="idol-nfc-about-split"></div>
+                            <a class="idol-nfc-contact" href="http://idol001.com/contact.html" target="_blank">联系我们</a>
+                            <div class="clearfix"></div>
+                        </div>    
+                    </div> 
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>    
+        </div>
+        <div class="idol-news-footer-copyright">
+            © 2013－2015 idol001.com, all rights reserved 粤ICP备12015719号
+        </div>
+    </div>
+</div>	
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 播放时弹出的提示下载dialog点击进行关闭
+		$('#idol-play-dialog-close').click(function(){
+			$(this).closest('.idol-play-dialog').hide();		
+		});	
+		// 查看前面一个推荐的视频
+		$('#idol-video-recommend-prev').click(function(){
+			var $listsEl = $('#idol-video-recommend-lists');
+			if(!$listsEl.is(":animated")){
+				var marginLeft = $listsEl.css('marginLeft');
+				var marginLeftValue = parseInt(marginLeft.substr(0, marginLeft.indexOf("px")));
+				if(marginLeftValue < 0){
+					$listsEl.animate({marginLeft: "+=186px"}, "slow");
+				}
+			}
+		});
+		// 查看后面一个推荐的视频
+		$('#idol-video-recommend-next').click(function(){
+			var $listsEl = $('#idol-video-recommend-lists');
+			if(!$listsEl.is(":animated")){
+				var marginLeft = $listsEl.css('marginLeft');
+				var marginLeftValue = parseInt(marginLeft.substr(0, marginLeft.indexOf("px")));
+				if(marginLeftValue > -186*5){
+					$listsEl.animate({marginLeft: "-=186px"}, "slow");
+				}				
+			}
+		});
+	});
+</script>
+</body>
+</html>
