@@ -1,0 +1,10 @@
+
+				var flashvars={
+						//f:"rtmp:\/\/dlrtmp.cdn.zhanqi.tv\/zqlive\/41410_vjK9T",
+						//f:"rtmp:\/\/rtmpplay3.idol001.com\/live\/korea_sbs",
+						f:"rtmp:\/\/rtmpplay-kw.idol001.com\/live\/korea_sbs",
+						c:0,
+						b:0,
+						p:1
+				};
+			

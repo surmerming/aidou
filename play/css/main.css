@@ -189,23 +189,29 @@
 	background: url(../images/icon.png) no-repeat;
     width: 30px;
     height: 60px;
-    background-position: -271px -21px;
+    background-position: -336px -70px;
     background-color: #272829;
     position: absolute;
     left: 0;
     top: 30px;
     cursor: pointer;
 }
+.idol-video-recommend-prev.active{
+    background-position: -282px -70px;    
+}
 .idol-video-recommend-next{
     background: url(../images/icon.png) no-repeat;
     width: 30px;
     height: 60px;
-    background-position: -322px -21px;
+    background-position: -309px -70px;
     background-color: #272829;
     position: absolute;
     right: 0;
     top: 30px;
     cursor: pointer;
+}
+.idol-video-recommend-next.active{
+    background-position: -254px -70px;
 }
 .idol-video-recommend-lists-area{
 	margin-left: 45px;
@@ -264,19 +270,13 @@
     padding-right: 3px;
 }
 
-
-
-
-
-
-
 .idol-app-intro{
 	width: 100%;
 	height: 793px;
 	background-color: #fff;
 }
 .idol-app-intro-bg{
-	width: 1314px;
+	max-width: 1314px;
 	margin: 0 auto;
 	height: 100%;
 	background: url(../images/download_bg.png) no-repeat;

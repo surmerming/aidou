@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://tv.idol001.com/idoltv-sbs.html -->
+<html xmlns:wb="http://open.weibo.com/wb" ng-app="IdolChat" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}</style>
+    <title>爱豆TV</title>
+
+	<!-- Include CSS -->
+	<link rel="stylesheet" href="http://tv.idol001.com/css/reset.css">
+	<link rel="stylesheet" href="http://tv.idol001.com/css/master_live_20150320.css?date=20150320170">
+
+    <!-- by xm -->
+    <!-- begin -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- end -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script charset="utf-8" src="./index_files/v.js"></script><script src="./index_files/hm.js"></script><script type="text/javascript" src="./index_files/ckplayer.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./index_files/common.js"></script>
+    <script type="text/javascript" src="./index_files/angular.min.js"></script>
+
+    <script type="text/javascript" src="./index_files/RongIMClient-0.9.13.min.js"></script>
+    
+    <!-- <script type="text/javascript" src="js/rong.min.js"></script> -->
+	<script type="text/javascript" src="./index_files/idoltv1.json"></script>
+	
+	<meta name="keywords" content="爱豆TV,爱豆专属电视台,爱豆,爱豆APP,idol,偶像,明星,直播,动态">
+	<meta name="description" content="爱豆APP-提供为爱豆的综艺节目、演唱会直播、电视剧节目，安装爱豆app，获取爱豆的动态资讯、行程、珍藏视频MV、美图。">
+	
+	<script>
+		if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) && Common_Tool.getParameter("PC")!=1){
+			window.location.href="http://lnk8.cn/c4Ad00";
+		}
+	</script>
+
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?f8d645bec1af37323ecf4b6f52453b71";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+<script>
+var G_starid="tv_station_1";
+var G_star={"_id":"52becff0cd4e70df1e8b4567","sid":6730,"name":"EXO","screen_name":null,"gif_img":"http:\/\/img.fengwo.me\/middle\/2014\/01\/23\/d485655c18feef9c149526201e80b2d41390449803.jpg","dongtai_img":"http:\/\/img.fengwo.me\/middle\/2014\/06\/04\/ba40a225b84e7e6b7d9b28badebe1d2e1401870169.jpg","logo_img":"http:\/\/img.fengwo.me\/middle\/2014\/06\/06\/dea2f4d04cbbe5edde00b3c5c37eedc21402024085.jpg","full_img":"http:\/\/img.idol001.com\/middle\/2015\/01\/13\/aebc2340515b1c9810f1579ad882353c1421115343.jpg","en_name":"exo","tv_web_img":"http:\/\/img.fengwo.me\/origin\/2014\/03\/29\/cfcd02df8e9c085e27e4ad2f936ddc081396076788.jpg","module":[1,1,1,1,1,1,1,1,1,1],"weibo_id":0,"combination":[{"$id":"52bef43fcd4e70df1e8b456d"},{"$id":"52bef323cd4e70e01e8b4569"},{"$id":"52bef13bcd4e70df1e8b456c"},{"$id":"52bef08acd4e70e01e8b4568"},{"$id":"52beef25cd4e70df1e8b456b"},{"$id":"52beedcecd4e70df1e8b456a"},{"$id":"52bee801cd4e70df1e8b4569"},{"$id":"52bedfbccd4e70df1e8b4568"},{"$id":"52bc35617f8b9a49088b5f34"},{"$id":"52bc35617f8b9a49088b5f33"},{"$id":"52bc35617f8b9a49088b5f32"},{"$id":"52bc35617f8b9a49088b5f35"},{"$id":"52bc35617f8b9a49088b49c7"},{"$id":"52bc35617f8b9a49088b49d0"}],"area_type":4,"tieba":"EXO","list":[1,1,1,1,1,1,1,1,1,1]};
+var G_weibo_id="2619577243";
+var G_CHATROOM_ID_OLD = 'tv_idoltv_001';
+var G_CHATROOM_ID = 'tv_station_new_1_1';
+
+</script>
+<script charset="UTF-8" src="./index_files/query"></script><script charset="UTF-8" src="./index_files/bundle.js"></script><script charset="utf-8" type="text/javascript" src="./index_files/tv_station_1.json"></script><script src="./index_files/protobuf-0.2.min.js"></script><script charset="UTF-8" src="./index_files/followButton.js"></script><link href="./index_files/followButtonSdk.css" type="text/css" rel="stylesheet"></head>
+
+
+<body ng-controller="ChatInfo" class="ng-scope"><iframe id="sina_anywhere_iframe" style="display: none;"></iframe>
+
+    <div class="header">
+        <div class="logo-idolTV">
+            <a href="http://idol001.com/" target="_blank"><img src="./index_files/logo-idolTV.png"></a>
+            <a class="XXX-tv" href="http://tv.idol001.com/exo.html"><h1>爱豆TV</h1></a>
+        </div>
+        <div class="crumbs">
+            <a href="http://idol001.com/" target="_blank">首页</a>
+        </div>
+        <ul class="header-links">
+            <li><a class="header-link header-link-workgroup" href="http://idol001.com/idolteam.html" target="_blank">爱豆工作组<span class="hot">hot</span></a></li>
+            <li onmouseover="document.getElementById(&#39;followUs-wrapper&#39;).style.display=&#39;&#39;" onmouseout="document.getElementById(&#39;followUs-wrapper&#39;).style.display=&#39;none&#39;">
+                <a class="header-link tv-nav-follow" href="javascript://" target="_self">关注爱豆</a>
+                <div class="panel balloon-up" id="followUs-wrapper" style="display: none;">
+                    <div class="balloon-top"></div>
+                    <div class="panel-bg">
+                        <div class="panel-inner">
+                            <ul>
+                                <li><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=7549a2af7dac67755216dc3fb6eb23db513064e061abcb898ad26977a5e78695"><img border="0" src="./index_files/group.png" alt="IDOL·EXO 勾搭群" title="IDOL·EXO 勾搭群"></a></li>                                <!--<li><wb:follow-button uid="2619577243" type="red_1" width="67" height="24" ></wb:follow-button></li>-->
+								<div id="wb_follow_btn"><span class="WB_btnA WB_widgets" node-type="followBtn"><span> <em class="WB_btnicn_add" node-type="followImg"></em><em>加关注</em></span></span></div>
+								
+                            </ul>
+                            <div class="cBoth"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a class="header-link tv-nav-favourite" href="javascript://" onclick="Chat.addBookmark()" target="_self">收藏本页</a></li>
+        </ul>
+    </div>
+
+    <!-- main content -->
+    <div id="mainContent">
+
+        <!--  live play -->
+        <div class="content-module content-module-player">
+            <div class="title">
+                <h2 id="titleBox">爱豆TV</h2>
+                <div class="gotoDownload">
+					<a class="radiusBt interpreteBt interpreteOn" style="display:none" onclick="audioTranslate(&#39;off&#39;)" href="javascript://">语音翻译<span>（点击关闭）</span></a>
+                    <a class="radiusBt interpreteBt interpreteOff" style="display:none" onclick="audioTranslate(&#39;on&#39;)" href="javascript://">语音翻译<span>（点击开启）</span></a>
+                    <a href="http://tv.idol001.com/idoltv-sbs.html#downloadApp" class="radiusBt" target="_self">用手机观看</a>
+                    <img src="./index_files/QR_icon.png" onmouseover="document.getElementById(&#39;QR-wrapper-android-player&#39;).style.display=&#39;&#39;;" onmouseout="document.getElementById(&#39;QR-wrapper-android-player&#39;).style.display=&#39;none&#39;;">
+                </div>
+                <div class="cBoth"></div>
+            </div>
+
+            <div class="panel balloon-up" id="QR-wrapper-android-player" style="display: none">
+                <div class="balloon-top"></div>
+                <div class="panel-bg"><img src="./index_files/QRCode_android.png"></div>
+                <iframe class="aboveFl" src="./index_files/transparent-bg.html" allowtransparency="true"></iframe>
+                <!-- iframe要链接要一个透明背景的页面，并且设置allowtransparency才有效 -->
+            </div>
+
+            <div class="cBoth"></div>
+
+            <div class="player-box">
+				
+				<!-- 节目单按钮 -->
+				<a class="programme-btn" onclick="switchProgramList()" href="javascript://" target="_self">«</a>
+				<!-- 点击后class加上“programme-btn-collapse”，内容改为”&raquo;“ ；#programme-box改为style=“display：none；”；。player-wrapper改"syle="margin-left:0;"-->
+
+                <!-- live list 节目单 -->
+                <div id="programme-box"><!-- 高度跟播放器高度一样；播放器宽度小于500px则自动隐藏 -->
+                    <div class="liveListContainer" id="allPlanList" style="display: ">
+
+                        <ul class="selectDate" id="selectDate"><li id="livelistTab0" data-index="0"><a class="selectDateToday">今天</a></li><li id="livelistTab1" data-index="1"><a>周三</a></li><li id="livelistTab2" data-index="2"><a>周四</a></li></ul>
+                        <div class="cBoth"></div>
+                        <div class="scroll-list" style="height: 405px;">
+                            <!--<div class="scroll-bar" id="sliderParent">
+								<div class="scroll-bar-thumb" id="slider"></div>
+							</div>-->
+							<!--<div id="scroll_box">-->
+								<ul class="listItems" id="allListToday0" tabindex="5000" style="overflow-y: hidden; outline: none;"></ul>
+								<ul class="listItems" id="allListToday1" style="display: none; overflow-y: hidden; outline: none;" tabindex="5001"><li id="item_54f66cfacd4e7019698b4997"><span>20:45</span><p>村庄：阿雉阿拉的秘密（带语音翻译） 水木剧 </p><div class="cBoth"></div></li><li id="item_55124ba5cd4e7017528b4849"><span>22:15</span><p>深夜的TV演艺 综艺娱乐访谈节目</p><div class="cBoth"></div></li></ul>
+								<ul class="listItems" id="allListToday2" style="display: none; overflow-y: hidden; outline: none;" tabindex="5002"><li id="item_5651963ccd4e70fe038b45a6"><span>19:55</span><p>第36届青龙电影奖 </p><div class="cBoth"></div></li><li id="item_54f66d0bcd4e702b3f8b4622"><span>20:45</span><p>村庄：阿雉阿拉的秘密（因第36届青龙电影奖停播一集） 水木剧</p><div class="cBoth"></div></li></ul>
+							<!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- end live list -->
+
+                <div class="player-wrapper">
+                    <div class="subtitleContainer ng-hide" ng-show="translates!=null&amp;&amp;translates.isTranslate">
+                       <p><span class="tanslator ng-binding"></span>：<span class="subtitle ng-binding"></span></p><iframe class="aboveFl" scrolling="no" frameborder="0" style="filter:chroma(color=#ffffff)"></iframe>
+                    </div>
+
+                    <div id="player" style="height: 477px; color: rgb(255, 221, 0);"><object pluginspage="http://www.macromedia.com/go/getflashplayer" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="100%" height="100%" id="ckplayer_a1" name="ckplayer_a1" align="middle"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="quality" value="high"><param name="bgcolor" value="#FFF"><param name="movie" value="ckplayer/ckplayer_6.5.swf"><param name="wmode" value="opaque"><param name="flashvars" value="f=rtmp://rtmpplay-kw.idol001.com/live/korea_sbs&amp;c=0&amp;b=0&amp;p=1"><embed allowscriptaccess="always" allowfullscreen="true" quality="high" bgcolor="#FFF" src="ckplayer/ckplayer_6.5.swf" wmode="opaque" flashvars="f=rtmp://rtmpplay-kw.idol001.com/live/korea_sbs&amp;c=0&amp;b=0&amp;p=1" width="100%" height="100%" name="ckplayer_a1" id="ckplayer_a1" align="middle" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></object>
+                        <!-- by xm -->
+                        <!-- begin -->
+                         <div class="idol-player-download">
+
+                            <div class="idol-app-download">
+                                <div class="idol-player-download-info">本视频暂时只通过APP进行播放，请下载爱豆APP</div>
+                                <div class="idol-app-download-left">
+                                    <div class="idol-adl-icon">
+                                        <img src="images/app_download_icon.png">
+                                    </div>
+                                    <div class="idol-adl-slogan">
+                                        <div class="idol-adl-slogan-title">爱豆APP</div>
+                                        <div class="idol-adl-slogan-rate">
+                                            <img src="images/app_rate.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="idol-app-download-btn">
+                                    <a class="idol-app-download-android" href="http://click.hm.baidu.com/app.gif?ap=104915&amp;ch=23200">
+                                        </a>
+                                    <a class="idol-app-download-ios" href="http://click.hm.baidu.com/app.gif?ap=199824&amp;ch=23209">
+                                    </a>
+                                </div>
+                                <div class="idol-app-download-qrcode">
+                                    <img src="images/app_qrcode.png">
+                                </div>
+                                <div class="clearfix"></div>    
+                            </div>
+                        </div>   
+                        <!-- end-->   
+                    </div>
+					
+					<div class="login-tip-af15" style="display:none">
+                        <p class="login-tip-if2">试看结束啦~<span class="ico-login2"></span></p>
+                        <div class="login-tip-div">
+                            <p class="af15-tip">未登录用户用户只能试看15分钟，快去右侧栏登录吧~</p>
+                            <!--<p>（全屏用户请先退出全屏）</p>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+			<div class="sourceCopyRight"><img src="./index_files/icon_attention.png">SBS-TV是免费为粉丝提供的服务，并无商业用途。所有视频整理自各大网络平台，感谢所有视频原作者和后期制作者。</div>
+
+            <!-- JiaThis Button BEGIN -->
+            <!--
+			<div class="jiathis_style_24x24" style="float: right;margin-top: 10px;">
+				<a class="jiathis_button_qzone"></a>
+				<a class="jiathis_button_tsina"></a>
+				<a class="jiathis_button_tqq"></a>
+				<a class="jiathis_button_weixin"></a>
+				<a class="jiathis_button_renren"></a>
+				<a href="http://www.jiathis.com/share?uid=1949801" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+			</div>
+			<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1393989110800218" charset="utf-8"></script> -->
+			<!-- JiaThis Button END -->
+            
+
+            <div class="tv_channel">
+                <a class="tv_ln tv_ln1" href="http://tv.idol001.com/idoltv-mbc.html"><img src="./index_files/mbc.jpg" alt="MBC电视台"></a>
+                <a class="tv_ln tv_ln2" href="http://tv.idol001.com/idoltv-kbs2.html"><img src="./index_files/kbs2.jpg" alt="KBS2电视台"></a>
+                <a class="tv_ln tv_ln3" href="./index_files/index.html"><img src="./index_files/sbs.jpg" alt="SBS电视台"></a>
+                <a class="tv_ln tv_ln4" href="http://tv.idol001.com/idoltv-mnet.html"><img src="./index_files/mnet.jpg" alt="MNET电视台"></a>
+				<a class="tv_ln tv_ln5" href="http://tv.idol001.com/idoltv-jtbc.html"><img src="./index_files/jtbc.jpg" alt="JTBC电视台"></a>
+				<a class="tv_ln tv_ln6" href="http://tv.idol001.com/idoltv-tvn.html"><img src="./index_files/tvn.jpg" alt="TVN电视台"></a>
+            </div>
+
+            <div class="cBoth"></div>
+        </div>
+        <!--  end live play -->
+
+        <!--  直播预告 -->
+        <div class="content-module content-module-grey" style="display:none" id="forecast_box">
+            <h4>直播预告</h4>
+            <div class="cBoth"></div>
+            <div class="arrows">
+                <a class="arrow" href="javascript://" onmousedown="Chat.setArrowDownInertval(&#39;left&#39;)" onmouseup="Chat.clearArrowDownInertval()">‹</a>
+                <a class="arrow" href="javascript://" onmousedown="Chat.setArrowDownInertval(&#39;right&#39;)" onmouseup="Chat.clearArrowDownInertval()">›</a>
+            </div>
+            <div class="forecast-scroller">
+                <div class="forecast-container">
+					
+                </div>
+                <div class="cBoth"></div>
+            </div>
+        </div>
+        <!--  end 直播预告 -->
+
+        <!--  安装app -->
+        <div class="content-module content-module-app" id="downloadApp">
+            <h4>安装APP</h4>
+            <div class="cBoth"></div>
+            <div>
+                <div class="phoneMockups_s"><img src="./index_files/phoneMockups_s.png"></div>
+                <div class="app-text">
+                    <h2>用爱豆APP，手机也可以看直播啦！</h2>
+                    <p>安装爱豆APP后，就可以在手机上观看所有直播！</p>
+                    
+                    <div class="download-btn-box">
+						<div class="panel" id="QR-wrapper-android-app">
+                            <div class="panel-bg"><img src="./index_files/QRCode_android.png"></div>
+                        </div>
+
+                        <a class="download-btn download-iPhone" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23212" target="_blank" rel="external nofollow">
+                            <p>iPhone版</p>
+							<em>立即下载最新版</em>
+                        </a>
+
+                        <a class="download-btn download-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23359" rel="external nofollow">
+                            <p>Android版</p>
+                            <em>立即下载最新版</em>
+                        </a>
+                    </div>
+                </div>
+                <div class="cBoth"></div>
+            </div>
+        </div>
+        <!--  end 安装app -->
+
+        <!--  爱豆新闻&排行榜 -->
+        <div class="content-module content-module-grey">
+            <div class="idol-news">
+                <a href="http://idol001.com/news/exo/" title="爱豆新闻"><h4>爱豆新闻</h4></a>
+                <div class="cBoth"></div>
+                <ul class="news-array">
+                    <li class="news-column">
+                        <ul><!-- 第一列 -->
+                        <li><a href="http://idol001.com/news/exo/detail/54bdc8527a1173a5328b4a96/" title="[置顶]150120 酷帅少年or霸道总裁？艾玛 是狼吞虎咽的吃货啊！！" target="_blank">[置顶]150120 酷帅少年or霸道总裁？艾玛 是狼吞虎咽的吃货啊！！</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bdffc47a1173f41c8b519d/" title="[新闻]150120 TAO一路上有你节目录制照片1P" target="_blank">[新闻]150120 TAO一路上有你节目录制照片1P</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bddcda7a1173d8098b477c/" title="[新闻]150120 和EXO一起了解关爱自闭症儿童" target="_blank">[新闻]150120 和EXO一起了解关爱自闭症儿童</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bd86cb7a1173a5328b4a63/" title="[新闻]150120 EXO将参加2015偶像运动会        " target="_blank">[新闻]150120 EXO将参加2015偶像运动会        </a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bce5ba7a1173317d8b4b47/" title="[新闻]150119 世勋点赞央视新闻微博 冬季吃火锅相关" target="_blank">[新闻]150119 世勋点赞央视新闻微博 冬季吃火锅相关</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bcdc3e7f8b9a0e5d8b4568/" title="[新闻]150119   世勋INS更新一则" target="_blank">[新闻]150119   世勋INS更新一则</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bcb8567a117311618b4a67/" title="[分享]150119 世勋情侣抠图 中意哪款请抱走" target="_blank">[分享]150119 世勋情侣抠图 中意哪款请抱走</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bc8fe57a117357158b4815/" title="[新闻]150119 SMTOWN NOW更新优酷全视频之夜官图8P" target="_blank">[新闻]150119 SMTOWN NOW更新优酷全视频之夜官图8P</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bc7c467a1173d8098b471d/" title="[新闻]150119 本周六一路上有你TAO正式亮相" target="_blank">[新闻]150119 本周六一路上有你TAO正式亮相</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bc61807a117357158b47f6/" title="[新闻]150119 SUHO：SJ圭贤哥是我的榜样" target="_blank">[新闻]150119 SUHO：SJ圭贤哥是我的榜样</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bb71c67a11734f1b8b4ad4/" title="[新闻]150118 Tao微博客户端名字：HLiphone6 plus " target="_blank">[新闻]150118 Tao微博客户端名字：HLiphone6 plus </a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bb64ae7a1173317d8b4ac4/" title="[新闻]150118 甄子丹微博更新EXO相关" target="_blank">[新闻]150118 甄子丹微博更新EXO相关</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bb51017a1173a5328b49d1/" title="[新闻]150118 LAY新浪微博互关郭敬明陈学冬" target="_blank">[新闻]150118 LAY新浪微博互关郭敬明陈学冬</a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bb48507a1173f41c8b50e2/" title="[新闻]150118 黄子韬评论浙江卫视一路有你微博" target="_blank">[新闻]150118 黄子韬评论浙江卫视一路有你微博</a></li>
+																																																																																																																																																																																																			                        </ul>
+</li>
+<li class="news-column news-column-second">
+<ul><!-- 第一列 -->
+																																																																																																																																																																																																			                            <li><a href="http://idol001.com/news/exo/detail/54bb409f7f8b9a43508b456a/" title="[新闻]150118 灿烈INS更新一则 " target="_blank">[新闻]150118 灿烈INS更新一则 </a></li>
+						                            <li><a href="http://idol001.com/news/exo/detail/54bb1ed17a117355628b53a2/" title="[新闻]150118 LAY微博新增关注华晨宇 郭敬明" target="_blank">[新闻]150118 LAY微博新增关注华晨宇 郭敬明</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54ba18ce7a11734f1b8b4a67/" title="[分享]150117 优酷全视频之夜  爆笑欢乐（dou bi）的采访时间！" target="_blank">[分享]150117 优酷全视频之夜  爆笑欢乐（dou bi）的采访时间！</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54ba05e27a11734e458b47bd/" title="[新闻]150117 TAO全视频之夜台下交到新朋友：华晨宇" target="_blank">[新闻]150117 TAO全视频之夜台下交到新朋友：华晨宇</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b9dfbe7a1173d8098b463c/" title="[新闻]150117 2014年歌手唱片销量占有率饼状图" target="_blank">[新闻]150117 2014年歌手唱片销量占有率饼状图</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b9cd737a117357158b46c2/" title="[新闻]150117 艺兴暖心叮嘱保重自己勿伤他人明天会更美好" target="_blank">[新闻]150117 艺兴暖心叮嘱保重自己勿伤他人明天会更美好</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b9c9ed7a1173fe5b8b4af3/" title="[新闻]150117 全视频之夜舞台热力男团&amp;亚洲风云天团：EXO" target="_blank">[新闻]150117 全视频之夜舞台热力男团&amp;亚洲风云天团：EXO</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b9bee57a117357158b46ba/" title="[新闻]150117    LAY亮相三周年" target="_blank">[新闻]150117    LAY亮相三周年</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b9840e7a11739b4d8b4c97/" title="[新闻]150117 EXO或将拍摄网络剧 EXO住在我家隔壁" target="_blank">[新闻]150117 EXO或将拍摄网络剧 EXO住在我家隔壁</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b981cf7a1173e07e8b4f12/" title="[新闻]150117 L官网新年活动作诗获年历和聊天活动 " target="_blank">[新闻]150117 L官网新年活动作诗获年历和聊天活动 </a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b909547a117357158b4698/" title="[新闻]150116 甄子丹微博更新与EXO合照" target="_blank">[新闻]150116 甄子丹微博更新与EXO合照</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b904157a1173f41c8b5049/" title="[新闻]150116 2015年 粉丝们对XIUMIN的期望是“请不要再练肌肉啦”" target="_blank">[新闻]150116 2015年 粉丝们对XIUMIN的期望是“请不要再练肌肉啦”</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b8f3307a1173d8098b4611/" title="[新闻]150116 甄子丹EXO后台亲密合照 一群小粉丝？" target="_blank">[新闻]150116 甄子丹EXO后台亲密合照 一群小粉丝？</a></li>
+																					                            <li><a href="http://idol001.com/news/exo/detail/54b8ac777a11735f738b45ff/" title="[新闻]150116 图片组第十二期专栏 【solo】" target="_blank">[新闻]150116 图片组第十二期专栏 【solo】</a></li>
+														                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="idolTV-rankings">
+                <a href="http://tv.idol001.com/" title="爱豆TV"><h4>爱豆TV排行榜</h4></a>
+                <div class="cBoth"></div>
+                <table class="rankings">
+                    <thead>
+                        <tr>
+                            <th class="td-ranking">排名</th>
+                            <th class="td-TV">专属TV</th>
+                            <th class="td-score">热度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+											                            <tr>
+                            <td>1</td>
+                            <td><a href="http://tv.idol001.com/exo.html" target="_blank" title="EXO-TV">EXO-TV</a></td>
+                            <td>378388</td>
+                        </tr>
+                                                <tr>
+                            <td>2</td>
+                            <td><a href="http://tv.idol001.com/bigbang.html" target="_blank" title="BigBang-TV">BigBang-TV</a></td>
+                            <td>126384</td>
+                        </tr>
+                                                <tr>
+                            <td>3</td>
+                            <td><a href="http://tv.idol001.com/sosi.html" target="_blank" title="少女时代-TV">少女时代-TV</a></td>
+                            <td>122295</td>
+                        </tr>
+                                                <tr>
+                            <td>4</td>
+                            <td><a href="http://tv.idol001.com/luhan.html" target="_blank" title="鹿晗-TV">鹿晗-TV</a></td>
+                            <td>116732</td>
+                        </tr>
+                                                <tr>
+                            <td>5</td>
+                            <td><a href="http://tv.idol001.com/zhengxiujing.html" target="_blank" title="郑秀晶-TV">郑秀晶-TV</a></td>
+                            <td>116659</td>
+                        </tr>
+                                                <tr>
+                            <td>6</td>
+                            <td><a href="http://tv.idol001.com/wuyifan.html" target="_blank" title="吴亦凡-TV">吴亦凡-TV</a></td>
+                            <td>99572</td>
+                        </tr>
+                                                <tr>
+                            <td>7</td>
+                            <td><a href="http://tv.idol001.com/songqian.html" target="_blank" title="宋茜-TV">宋茜-TV</a></td>
+                            <td>74552</td>
+                        </tr>
+                                                <tr>
+                            <td>8</td>
+                            <td><a href="http://tv.idol001.com/tfboys.html" target="_blank" title="TFBOYS-TV">TFBOYS-TV</a></td>
+                            <td>70097</td>
+                        </tr>
+                                                <tr>
+                            <td>9</td>
+                            <td><a href="http://tv.idol001.com/2ne1.html" target="_blank" title="2NE1-TV">2NE1-TV</a></td>
+                            <td>70008</td>
+                        </tr>
+                                                <tr>
+                            <td>10</td>
+                            <td><a href="http://tv.idol001.com/lizhongshuo.html" target="_blank" title="李钟硕-TV">李钟硕-TV</a></td>
+                            <td>69276</td>
+                        </tr>
+                                            </tbody>
+                </table>
+            </div>
+            <div class="cBoth"></div>
+
+        </div>
+        <!--  爱豆新闻&排行榜 end -->
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="http://idol001.com/" target="_blank">爱豆APP</a></li>
+                <li><a href="http://tv.idol001.com/" target="_blank">爱豆TV</a></li>
+                <li><a href="http://fengwo.me/" target="_blank">蜂窝Me</a></li>
+            </ul>
+            <ul class="footer-followUs">
+                <li><a onmouseover="document.getElementById(&#39;QR-wrapper-wechat&#39;).style.display=&#39;&#39;;" onmouseout="document.getElementById(&#39;QR-wrapper-wechat&#39;).style.display=&#39;none&#39;;"><img src="./index_files/wechat-sub.png"></a>
+                    <div class="panel balloon-down" id="QR-wrapper-wechat" style="display: none;">
+                        <div class="panel-bg"><img src="./index_files/QR_wechat.png"></div>
+                        <div class="balloon-top"></div>
+                    </div>
+                </li>
+                <li><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=7549a2af7dac67755216dc3fb6eb23db513064e061abcb898ad26977a5e78695"><img border="0" src="./index_files/group.png" alt="IDOL·EXO 勾搭群" title="IDOL·EXO 勾搭群"></a></li>               
+            </ul>
+        </div>
+        <div class="cBoth"></div>
+        <div class="footer-copyRight">
+            <p>© 2014 idol001.com <a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备12015719号</a></p>
+            <p>深圳市爱豆网络技术有限公司</p>
+        </div>
+    </div><!-- end footer -->
+
+    </div>
+    <!-- end main content -->
+
+	<!--  comments 右侧聊天板 -->
+    <div id="commentColumn" style="display:;">
+        <div class="commentColumn-shadow"></div>
+		<div id="zhanqiTV" style="display:none">
+            <h4>本次直播在<strong>战旗TV</strong>同步播出</h4>
+            <div><img src="./index_files/logo-zhanqiTV.png"></div>
+            <p>战旗TV-高清流畅的直播平台</p>
+            <a id="zhanqiTV_url" class="radiusBt" href="" target="_blank">去战旗TV边看边聊 »</a>
+        </div>
+        <div id="commentBox">
+            <div id="memberPanel">
+                <a class="radiusBt" id="allAdmin" onclick="$(&#39;#allAdminDialog&#39;).show();Chat.getAdminList()">管理员</a>
+                <a class="radiusBt" id="allTrans" onclick="$(&#39;#allTranslatorDialog&#39;).show();Chat.getTranslatorList()">翻译</a><a class="aUnderline" href="javascript://" onclick="$(&#39;#applyTranslatorDialog&#39;).show()">我要翻译</a>            </div>
+            <a style="" class="announce" href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5652764bcd4e707e2f8b45da/" target="_blank"><span>今日人气歌谣，寻笑人停播一期</span></a>
+
+            <!-- 聊天内容 -->
+            <div id="commentContent" style="top: 70px;">
+                <ul id="commentList">
+                    <!-- ngRepeat: item in historyMessages -->
+                </ul>
+            </div>
+
+			<!-- 输入区 -->
+			<div id="inputPanel">
+				<div id="toggleContentType" style="display:none">
+                    <div onclick="Chat.btTranslate()"><input type="radio" name="contentType" value="translate">翻译</div>
+                    <div onclick="Chat.btChat()"><input type="radio" name="contentType" value="chat" checked=""> 聊天</div><!--  默认选中聊天 -->
+                </div>
+				<textarea id="textArea" name="commentText" rows="2" maxlength="100" ng-enter="" ng-focus="setFocus()" ng-blur="setBlur()" disabled="">登录后来聊天吧~</textarea> <!-- 若已登录则去掉readonly，placeholder改为“吐个槽先...按回车键发送” -->
+				<div id="logOut" style="display:none"></div><!-- 登录后显示 -->
+				<a class="radiusBt" id="loginWeibo" style="visibility:visible" href="javascript://" target="_self" onclick="window.open(&#39;https://api.weibo.com/oauth2/authorize?client_id=3462420625&amp;redirect_uri=http%3A%2F%2Ffan.tv.idol001.com%2Fcallback.php%3Ffrom%3Dweibo%26callback%3dChat.loginCallBack%26starid%3d6730%26weibo_id%3d2619577243&amp;response_type=code&#39;)">用微博账号登录</a><!-- 未登录显示 -->
+				<!--<a class="radiusBt" id="sendComment" style="display:none">发送</a>--><!-- 登录后显示 -->
+				<a class="radiusBt_disabled" id="sendComment" ng-click="sendMessage()">发送</a><!-- 登录后class改为"radiusBt" -->
+			</div>
+
+        </div>
+    </div>
+    <!--  end comments -->
+
+	
+	<!-- 引导安装板块 BEGIN -->
+	<div class="aside-tip">
+        <div class="commentColumn-shadow"></div>
+        <!--new add login tip between 3min to 15min  on 25th,12,2015-->
+        <div id="loginTip" class="login-tip-b315" style="display:;">
+            <p class="login-tip-if">登录爱豆观看，尊享3大会员特权<span class="ico-tip"></span></p>
+            <div class="prero-pt">
+                <p class="prero-if">爱豆TV是由爱豆APP的用户创建和 管理的，爱豆APP的用户享有以下 特权呦：</p>
+                <ul class="lis-prero">
+                    <li class="prero-it">
+                        <p class="prero-it-if">观看更流畅<span class="ico-prero2"></span></p>
+                    </li>
+                    <li class="prero-it prero-it2">
+                        <p class="prero-it-if">语音/文字翻译<span class="prero-it-sub">部分直播提供</span><span class="ico-prero3"></span></p>
+                    </li>
+                    <li class="prero-it">
+                        <p class="prero-it-if">边看边聊<span class="ico-prero4"></span></p>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn-login" href="javascript://" onclick="$(&#39;#loginTip2&#39;).show();$(&#39;#loginTip&#39;).hide();">立即登录</a>
+        </div>
+        <!--END  new add login tip between 3min to 15min  on 25th,12,2015-->
+
+        <!--new add tab(register and login)  on 25th,12,2015-->
+        <div id="loginTip2" class="tab-tip" style="display: none;">
+			<!-- 通过加上类on进行tab的切换显示 -->
+            <div class="tab-pt">
+                <ul class="tab-nav">
+                    <li id="login_tab_0" class="on"><a href="javascript://" target="_self" class="nav-register" onclick="Chat.switchLoginTab(0)">注册帐号<span>我没爱豆APP帐号</span></a></li>
+                    <li id="login_tab_1"><a href="javascript://" target="_self" class="nav-login" onclick="Chat.switchLoginTab(1)">直接登录<span>我有爱豆APP帐号</span></a></li>
+                </ul>
+                <ul class="tab-content">
+                    <li class="content cont-login on" id="login_list_0">
+                        <ol class="lis-step">
+                            <li>下载安装爱豆APP<span class="ico-step">1</span></li>
+                            <li>注册爱豆APP帐号<span class="ico-step">2</span></li>
+                            <li>用该帐号<a href="javascript://" target="_self" onclick="Chat.switchLoginTab(1)">登录</a>本页面<span class="ico-step">3</span></li>
+                            <li>无限时观看 ^_^<span class="ico-step">4</span></li>
+                        </ol>
+                        <div class="code-pt">
+                            <img width="126" height="126" src="./index_files/QRCode_android(1).png" alt="">
+                            <p class="code-if"><span>扫描左侧</span>二维码下载</p>
+                        </div>
+                        <a class="btn-android" href="http://download.idol001.com/android/iDol_download.php?type=d">Android版 <span class="ico-android"></span></a>
+                        <a class="btn-iphone" href="http://download.idol001.com/android/iDol_download.php?type=ios" target="_blank">iphone版 <span class="ico-iphone"></span></a>
+                    </li>
+                    <li class="content cont-register" id="login_list_1">
+                        <ol class="lis-login">
+                            <li class="item-first">
+                                <p>1.爱豆帐号登录</p>
+
+                                <form class="form-login ng-pristine ng-valid" method="post" action="http://fan.tv.idol001.com/chat_v2.php?action=login" target="form_post">
+                                    <div class="user">
+                                        <label class="lb-user" for="username">账号</label>
+                                        <input class="in-user" type="text" id="username" name="username">
+                                    </div>
+                                    <div class="passd">
+                                        <label class="lb-passd" for="password">密码</label>
+                                        <input class="in-passd" type="password" id="password" name="password">
+                                    </div>
+                                    <input class="btn-login" type="submit" value="登录">
+                                </form>
+                            </li>
+                            <li>
+                                <p>2.微博帐号登录</p>
+                                <a class="btn-sina" href="javascript://" onclick="window.open(&#39;https://api.weibo.com/oauth2/authorize?client_id=3462420625&amp;redirect_uri=http%3A%2F%2Ffan.tv.idol001.com%2Fcallback_idol.php%3Ffrom%3Dweibo%26callback%3dChat.loginCallBack%26starid%3d6730%26weibo_id%3d2619577243&amp;response_type=code&#39;)">新浪微博登录<span class="ico-sina"></span></a>
+                            </li>
+                        </ol>
+                        
+                        <p style="display:none" class="warm">该帐号未注册爱豆APP,请先<a href="javascript://" target="_self" onclick="$(&#39;.warm&#39;).hide();Chat.switchLoginTab(0)">安装爱豆APP并注册</a>，然后再用该帐号登录。<span class="ico-warm"></span></p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!--END  new tab(register and login)   on 25th,12,2015-->
+
+    </div>
+	<!-- 引导安装板块 END -->
+
+
+    <!--  all administrator dialog 管理员列表 -->
+    <div class="dialog" id="allAdminDialog" style="display:none">
+        <div class="panel-bg">
+            <div class="panel-inner">
+                <h4>所有管理员</h4>
+                <div class="cBoth"></div>
+                <a class="closeBt" onclick="$(&#39;#allAdminDialog&#39;).hide()"></a>
+                <ul class="dialogList" id="dialogList_admin">
+                    
+                </ul>
+            </div>
+        </div>
+        <iframe class="aboveFl" src="./index_files/transparent-bg.html" allowtransparency="true"></iframe>
+    </div>
+    <!--  end all translator dialog -->
+
+    <!--  all translator dialog 所有翻译 -->
+    <div class="dialog" id="allTranslatorDialog" style="display:none">
+        <div class="panel-bg">
+            <div class="panel-inner">
+                <h4>所有翻译</h4>
+                <div class="cBoth"></div>
+                <a class="aUnderline" onclick="$(&#39;#applyTranslatorDialog&#39;).show()">申请翻译</a>
+                <a class="closeBt" onclick="$(&#39;#allTranslatorDialog&#39;).hide()"></a>
+                <ul class="dialogList" id="dialogList_translator">
+                   
+                </ul>
+            </div>
+        </div>
+        <iframe class="aboveFl" src="./index_files/transparent-bg.html" allowtransparency="true"></iframe>
+    </div>
+    <!--  end all translator dialog -->
+
+    <!--  apply Translators Dialog 我要翻译 -->
+    <div class="dialog" id="applyTranslatorDialog" style="display:none">
+        <div class="panel-bg">
+            <div class="panel-inner">
+                <h4>我要翻译</h4>
+                <div class="cBoth"></div>
+                <a class="closeBt" onclick="$(&#39;#applyTranslatorDialog&#39;).hide()"></a>
+                <div>
+                    <img src="./index_files/ill_translation.png">
+                    <div>
+                        <p>我们正在寻找能听得懂韩语的小伙伴们来给广大粉粉们做直播的实时翻译。</p>
+                        <p>有兴趣的请私信<a class="redTextLink" href="http://weibo.com/fengwotiyu" target="_blank">@爱豆韩流社区</a>报名。</p>
+                        <p>爱豆和粉粉们都期待你的加入哦！</p>
+                        <a class="radiusBt" href="http://weibo.com/fengwotiyu/profile?rightmod=1&wvr=5&mod=personnumber" target="_blank">私信官博报名</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  end apply Translators Dialog -->
+
+    <!--  user info Dialog 用户信息 点击用户名称弹出 -->
+    <div class="dialog ng-hide" id="userInfoDialog" ng-show="cardUser!=null">
+        <div class="panel-bg">
+            <div class="panel-inner">
+                <h4>Ta的资料</h4>
+                <div class="cBoth"></div>
+                <a class="closeBt" ng-click="hideCardUser();"></a>
+                <ul class="dialogList">
+                    <li class="userItem">
+                        <div>
+                            <div class="weiboAvatar">
+                                <a><img ng-src=""></a>
+                            </div>
+
+                            <div class="userItemTitle ng-binding"></div>
+                            <p>
+                                <span class="ng-binding">&nbsp;普通用户</span>
+
+                                <span ng-show="owner.administrator&amp;&amp;!cardUser.idolUser.administrator" class="ng-hide"><a class="aUnderline" href="javascript:void(0)" ng-click="forbidUser(cardUser.idolUser._id)">临时禁言</a></span>
+
+                                <span ng-show="owner.administrator&amp;&amp;!cardUser.idolUser.administrator" class="ng-hide"><a class="aUnderline" href="javascript:void(0)" ng-click="forbidUserForever(cardUser.idolUser._id)" style="margin-left:80px;">永久禁言</a></span>
+                            </p>
+
+                        </div>
+                        <a class="radiusBt ng-hide" target="_blank" href="http://weibo.com/u/" ng-show="cardUser.idolUser.sina_uid!=null">Ta的微博</a>
+                        <div class="cBoth"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--  end user info Dialog -->
+	
+	<!--  APP提醒 Dialog -->
+    <div class="dialog" id="appRemind" style="display:none">
+        <div class="panel-bg">
+            <div class="panel-inner">
+                <h4>直播提醒</h4>
+                <div class="cBoth"></div>
+                <a class="closeBt" onclick="$(&#39;#appRemind&#39;).hide()"></a>
+                <p>安装爱豆APP就能收到直播通知并在手机上直接观看咯~</p>
+                <p>要不要安装一个捏~</p>
+                <div class="btn-wrapper"><a class="radiusBt" href="http://tv.idol001.com/idoltv-sbs.html#downloadApp" onclick="$(&#39;#appRemind&#39;).hide()">安装APP</a></div>
+            </div>
+        </div>
+    </div>
+    <!--  end APP提醒 Dialog -->
+
+    <!--  iPhone版发布提醒 Dialog -->
+    <div class="dialog" id="iPhoneReleaseRemind" style="display:none">
+        <div class="panel-bg">
+            <div class="panel-inner">
+                <h4>iPhone版发布提醒</h4>
+                <div class="cBoth"></div>
+                <a class="closeBt" onclick="$(&#39;#iPhoneReleaseRemind&#39;).hide()"></a>
+                <p>预计暑假期间发布，留下QQ就能第一时间收到提醒哦~</p>
+                <input placeholder="输入你的QQ号">
+                <a class="radiusBt" href="">提交</a>
+            </div>
+        </div>
+    </div>
+    <!--  end iPhone版发布提醒 Dialog -->
+
+    <div class="guide-dialog" id="guide-dialog" style="display: none;">        
+        <div class="guide-dialog-con">
+            <h4>爱豆APP-追星必备神器</h4>
+            <a class="close-btn" href="javascript://" onclick="closeDialog()"></a>
+            <ul class="guide-list">
+                <li class="li1"><b></b>随时追踪行程</li>
+                <li class="li2"><b></b>高清流畅直播</li>
+                <li class="li3"><b></b>美图视频搜集</li>
+                <li class="li4"><b></b>亲密家人互动</li>
+            </ul>
+            <div class="dl-div">
+                <strong class="ico-lg">爱豆APP</strong>
+                <div class="guide-btn-con">
+                    <a class="dl-btn dl-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23359" rel="external nofollow"><b></b>Android版<b></b></a>
+                    <a class="dl-btn dl-iPhone" target="_blank" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23212" rel="external nofollow"><b></b>iPhone版<b></b></a>                 
+                </div>
+                <div class="qr-wp">
+                    <img alt="安卓二维码" src="./index_files/qrcode_yd.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="guide-tips" id="guide-tips" style="display: none;">
+        <h4>爱豆APP-追星必备神器</h4>
+        <a class="close-btn" href="javascript://" onclick="closeDialogTips();"></a>
+        <div class="dl-div">
+            <div class="qr-wp">
+                <img alt="安卓二维码" src="./index_files/qrcode_yd(1).png">
+            </div>
+            <div class="guide-btn-con">
+                <a class="dl-btn dl-android" href="http://click.hm.baidu.com/app.gif?ap=104915&ch=23359" rel="external nofollow"><b></b>Android版<b></b></a>
+                <a class="dl-btn dl-iPhone" target="_blank" href="http://click.hm.baidu.com/app.gif?ap=199824&ch=23212" rel="external nofollow"><b></b>iPhone版<b></b></a>                 
+            </div>
+        </div>
+        <p class="p1"><em></em>门票专辑，定期大派送</p>
+        <p class="p2"><em></em>还有明星见面机会呦~</p>
+    </div>
+
+    <script type="text/javascript">
+        var Common_Tool = {};
+
+        Common_Tool.getCookie=function(a){
+            return document.cookie.match(RegExp("(^"+a+"| "+a+")=([^;]*)"))==null?"":decodeURIComponent(RegExp.$2);
+        }
+
+        Common_Tool.setCookie=function(name,value,millisecond){
+                if(arguments.length>2){
+                    var expireDate=new Date(new Date().getTime()+millisecond);
+                    document.cookie = name + "=" + encodeURIComponent(value) + "; path=/; domain=idol001.com; expires=" + expireDate.toGMTString();
+                }else{
+                    document.cookie = name + "=" + encodeURIComponent(value) + "; path=/; domain=idol001.com";
+                }
+        }
+
+        function closeDialog(){
+            document.getElementById("guide-dialog").style.display="none";
+            Common_Tool.setCookie("guide-dialog",1,24*3600*1000);
+        }
+
+        if (Common_Tool.getCookie("guide-dialog") != 1) {
+            document.getElementById("guide-dialog").style.display="";
+        }
+
+        function closeDialogTips(){
+            document.getElementById("guide-tips").style.display="none";
+            Common_Tool.setCookie("guide-tips",1,24*3600*1000);
+        }
+
+        if(Common_Tool.getCookie("guide-tips")!=1){
+            document.getElementById("guide-tips").style.display="";
+        }
+    </script>
+
+
+<iframe id="audio_translate" src="about:blank" height="0" width="0"></iframe>
+<iframe id="form_post" name="form_post" src="about:blank" height="0" width="0"></iframe>
+<script language="javascript" src="./index_files/jquery-1.7.2.min.js" type="text/javascript"></script>
+<!--<SCRIPT language=javascript src="js/jquery.sly.js" type=text/javascript></SCRIPT>-->
+<script type="text/javascript" src="./index_files/jquery.nicescroll.js"></script>
+<!--<script type="text/javascript" src="js/idoltv_20150210.js"></script>-->
+<script language="javascript" src="./index_files/chat_v7_0.9.9.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var playlist_url = "http://t.tv.idol001.com/tvlist/201502_"+G_CHATROOM_ID_OLD+".json";
+    var tap_index = 0;
+    var sys_time = new Date().getTime();
+    var sys_day = new Date().getDay();
+    var program_now = null;//当前在播放的节目
+    var playlist_timer = null;//左侧节目列表展示定时器
+    var is_translate_off = false;
+    var week_days = {
+        0 : '周日',
+        1 : '周一',
+        2 : '周二',
+        3 : '周三',
+        4 : '周四',
+        5 : '周五',
+        6 : '周六',
+    }
+
+    function setTvList() {
+        clearInterval(playlist_timer);
+        $.getJSON(playlist_url, 'utf-8', function(response){
+            var htmlArr = [];
+            var htmlList = [];
+
+            for (i=0; i<response.data.length; i++) {
+                if (i != sys_day) {
+                    continue;
+                }
+
+                htmlArr = [{
+                    title:week_days[i],
+                    content:''
+                },{
+                    title:week_days[(i+1)%7],
+                    content:''
+                },{
+                    title:week_days[(i+2)%7],
+                    content:''
+                },];
+
+                htmlList = [response.data[i], response.data[(i+1)%7], response.data[(i+2)%7]];
+            }
+
+            for (i in htmlList) {
+                for(idx in htmlList[i]) {
+                    idx = parseInt(idx);
+                    var list = htmlList[i][idx];
+                    var listNext = typeof(htmlList[i][idx+1]) !== 'undefined' ? htmlList[i][idx+1] : null;
+               
+                    htmlArr[i]['content'] += '<li id="item_'+list._id+'"><span>'+list.xbegintime+'</span><p>'+list.title+'</p><div class="cBoth"></div></li>';
+                }
+            }
+
+            var htmlTab = '';
+            for(var i=0;i<htmlArr.length;i++){
+                if(i==0){
+                    htmlTab+='<li id="livelistTab'+i+'" data-index="'+i+'"><a '+(tap_index==0?'class="selectDateToday"':"")+'>今天</a></li>';
+                }else{
+                    htmlTab+='<li id="livelistTab'+i+'" data-index="'+i+'" ><a '+(tap_index==i?'class="selectDateToday"':"")+'>'+htmlArr[i].title+'</a></li>';
+                }
+                $('#allListToday'+i).html(htmlArr[i]['content']);
+
+                $("#allListToday"+i).niceScroll({  
+                    cursorcolor:"#666",  
+                    cursoropacitymax:1,  
+                    touchbehavior:false,  
+                    cursorwidth:"10px",  
+                    cursorborder:"0",  
+                    cursorborderradius:"5px",
+                    cursoropacitymin:1,
+                    railpadding:{left:10},
+                    cursorborderradius:"0px",
+                    horizrailenabled:false,
+                    autohidemode:false
+                }); 
+
+                $("#livelistTab"+i).live('click', function(){
+                    $(".listItems").hide();
+                    $("#allListToday"+this.getAttribute("data-index")).show();
+                    
+                    $(".selectDate li a").removeClass("selectDateToday");
+                    $("#livelistTab"+this.getAttribute("data-index")+" a").addClass("selectDateToday");
+                    tap_index=this.getAttribute("data-index");
+                });
+            }
+
+            $("#selectDate").html(htmlTab);
+
+            checkCurrentProgram(response);//筛选当前正在播放的节目
+            playlist_timer = setInterval(function(){
+                checkCurrentProgram(response);
+            }, 20000);
+            
+        });
+    }
+
+    setTvList();
+    setInterval(setTvList, 300000);//5分钟轮询节目单
+
+    function checkCurrentProgram(response){
+
+        var tt_s = new Date().getHours() * 60 + new Date().getMinutes();
+
+        for (i in response.data) {
+            i = parseInt(i);
+            if (i != sys_day) {
+                continue;
+            }
+
+            for(idx in response.data[i]) {
+                idx = parseInt(idx);
+                var list = response.data[i][idx];
+                var listNext = typeof(response.data[i][idx+1]) !== 'undefined' ? response.data[i][idx+1] : null;
+
+                nowTime = list.xbegintime.split(':');
+
+                if(parseInt(nowTime[0] * 60) + parseInt(nowTime[1]) < tt_s){//节目时间大于系统时间
+                    if (listNext) {
+                        nextTime = listNext.xbegintime.split(':');
+                        if (parseInt(nextTime[0] * 60) + parseInt(nextTime[1]) > tt_s) {
+                            program_now = list;
+                        }
+                    } else {
+                        program_now = list;
+                    }
+                }
+
+                if (!!program_now) {
+                    $('.listItems li').removeClass('nowPlaying');
+                    $('#item_'+program_now._id).addClass('nowPlaying');
+                    if (program_now.is_live && program_now.live_address) {
+                        if (is_translate_off === true) {
+                            return;
+                        }
+                        if ($("#audio_translate").attr('src') != program_now.live_address) {
+                            $("#audio_translate").attr('src', program_now.live_address);
+                        }
+                        $(".interpreteOff").hide();
+                        $(".interpreteOn").show();
+                    }else{
+                        $("#audio_translate").attr('src', "about:blank");
+                        $(".interpreteOff").hide();
+                        $(".interpreteOn").hide();
+                    }
+                }
+                
+            }
+        }
+    }
+
+    function audioTranslate(type){
+        if(type=="on"){
+            $("#audio_translate").attr('src', program_now.live_address);
+            $(".interpreteOff").hide();
+            $(".interpreteOn").show();
+            is_translate_off = false;
+        }else{
+            $("#audio_translate").attr('src', "about:blank");
+            $(".interpreteOn").hide();
+            $(".interpreteOff").show();
+            is_translate_off = true;
+        }
+    }
+
+	function setScale(noauto){
+		if($("#player").width()<500 && !$("#programme-box").is(":hidden") && !noauto){
+			switchProgramList("hidden");
+		}
+		$("#player").height(Math.ceil($("#player").width()/16*9+38));
+		if(MiniSite.Browser.ie){
+			$(".scroll-list").height($("#player").height()-66);
+		}else{
+			$(".scroll-list").height($("#player").height()-72);
+		}
+	}
+	setScale();
+	function switchProgramList(type){
+		if(!$("#programme-box").is(":hidden") || type=="hidden"){
+			$(".programme-btn").addClass("programme-btn-collapse");
+			$(".programme-btn").html("&raquo");
+			$("#programme-box").hide();
+			$(".nicescroll-rails").hide();
+			$(".listItems").hide();
+			$("#programme-box").css({"visibility":"hidden"});
+			$(".player-wrapper").css("margin-left",0);
+		}else{
+			$(".programme-btn").removeClass("programme-btn-collapse");
+			$(".programme-btn").html("&laquo");
+			$("#programme-box").show();
+			$("#ascrail200"+tap_index).show();
+			$("#allListToday"+tap_index).show();
+			$("#programme-box").css({"visibility":"visible"});
+			$(".player-wrapper").css("margin-left",260);
+		}
+		setScale(true);
+	}
+	$(window).resize(function(){
+		setScale();
+	});
+	function getParameter(name){
+		try{
+			var search = document.location.search;
+			var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+			var matcher = pattern.exec(search);
+			var items = null;
+			if(null != matcher){
+			   // items = decodeURIComponent(matcher[1]);
+				items =matcher[1];
+			}
+			return items;
+		}catch(e){
+			return false;
+		};
+	}
+    
+	var rtmp_url=decodeURIComponent(getParameter("url"));
+	/*var flashvars={
+		//f:'rtmp://vplay.acfun.tv/live/nqFDjcYRLZWqmfUg',
+		f:"rtmp://dlrtmp.cdn.zhanqi.tv/zqlive/2074_LiUaw",
+		//f:"",
+		c:0,
+		b:1,
+		p:1
+		};*/
+	var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always'};
+	CKobject.embedSWF('ckplayer/ckplayer_6.5.swf','player','ckplayer_a1','100%','100%',flashvars,params);
+	function playerstop(){
+		setTimeout(function(){CKobject.getObjectById("ckplayer_a1").newAddress(flashvars.f)},parseInt(5*Math.random())*1000);
+	}
+</script>
+
+<script src="./index_files/statistic.js"></script>
+<script>
+    // IdolStatistic.initRoom(G_CHATROOM_ID);
+    // setInterval(function(){
+    //     IdolStatistic.getRoomOlNum(function(response){
+    //         if (response.error) {
+    //             console.log('错误:' + response.error_description)
+    //         } else {
+    //             console.log('在线人数:' + response.data)
+    //         }
+    //     });    
+    // }, 60000);
+    // IdolStatistic.getRoomOlNum(function(response){
+    //     if (response.error) {
+    //         console.log('错误:' + response.error_description)
+    //     } else {
+    //         console.log('在线人数:' + response.data)
+    //     }
+    // });
+</script>
+<div style="display: none;"><script language="javascript" type="text/javascript" src="./index_files/9855399.js"></script><a href="http://www.51.la/?9855399" target="_blank" title="51.La 网站流量统计系统">网站统计</a>
+<noscript>&lt;a href="http://www.51.la/?9855399" target="_blank" rel="external nofollow"&gt;&lt;img alt="&amp;#x6211;&amp;#x8981;&amp;#x5566;&amp;#x514D;&amp;#x8D39;&amp;#x7EDF;&amp;#x8BA1;" src="http://img.users.51.la/9855399.asp" style="border:none" /&gt;&lt;/a&gt;</noscript></div>
+<script src="./index_files/wb.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	WB2.anyWhere(function(W){
+		W.widget.followButton({
+			'nick_name': '爱豆韩流社区',  //用户昵称
+			'id': "wb_follow_btn",
+			'show_head' : false, //是否显示头像
+			'show_name' : false, //是否显示名称
+			'show_cancel': false //是否显示取消关注按钮
+		});
+	});
+</script><div id="ascrail2000" class="nicescroll-rails" style="padding-left: 10px; width: 20px; z-index: 1; cursor: default; position: absolute; top: 129px; left: 260px; height: 405px; opacity: 1; display: none;"><div style="position: relative; top: 0px; float: right; width: 10px; height: 0px; border: 0px; border-radius: 0px; background-color: rgb(102, 102, 102); background-clip: padding-box;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="padding-left: 10px; width: 20px; z-index: 1; cursor: default; position: absolute; top: 0px; left: 215px; height: 405px; opacity: 1; display: none;"><div style="position: relative; top: 0px; float: right; width: 10px; height: 0px; border: 0px; border-radius: 0px; background-color: rgb(102, 102, 102); background-clip: padding-box;"></div></div><div id="ascrail2002" class="nicescroll-rails" style="padding-left: 10px; width: 20px; z-index: 1; cursor: default; position: absolute; top: 0px; left: 215px; height: 405px; opacity: 1; display: none;"><div style="position: relative; top: 0px; float: right; width: 10px; height: 0px; border: 0px; border-radius: 0px; background-color: rgb(102, 102, 102); background-clip: padding-box;"></div></div></body></html>

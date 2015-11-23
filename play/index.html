@@ -330,30 +330,49 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 	$(function(){
+
+		function getValue(marginLeft){
+			return parseInt(marginLeft.substr(0, marginLeft.indexOf("px")));
+		}
+		function isActive(value){
+			if(value < 0){
+				$('#idol-video-recommend-prev').addClass('active');
+			}else{
+				$('#idol-video-recommend-prev').removeClass('active');
+			}
+			if(value  > -186*5){
+				$('#idol-video-recommend-next').addClass('active');
+			}else{
+				$('#idol-video-recommend-next').removeClass('active');
+			}
+		}
+		var $listsEl = $('#idol-video-recommend-lists');
+		isActive(getValue($listsEl.css('marginLeft'))); 
+		
 		// 播放时弹出的提示下载dialog点击进行关闭
 		$('#idol-play-dialog-close').click(function(){
 			$(this).closest('.idol-play-dialog').hide();		
 		});	
 		// 查看前面一个推荐的视频
 		$('#idol-video-recommend-prev').click(function(){
-			var $listsEl = $('#idol-video-recommend-lists');
 			if(!$listsEl.is(":animated")){
 				var marginLeft = $listsEl.css('marginLeft');
-				var marginLeftValue = parseInt(marginLeft.substr(0, marginLeft.indexOf("px")));
+				var marginLeftValue = getValue(marginLeft);
 				if(marginLeftValue < 0){
 					$listsEl.animate({marginLeft: "+=186px"}, "slow");
 				}
+				isActive(marginLeftValue);
 			}
 		});
 		// 查看后面一个推荐的视频
 		$('#idol-video-recommend-next').click(function(){
-			var $listsEl = $('#idol-video-recommend-lists');
 			if(!$listsEl.is(":animated")){
 				var marginLeft = $listsEl.css('marginLeft');
-				var marginLeftValue = parseInt(marginLeft.substr(0, marginLeft.indexOf("px")));
+				var marginLeftValue = getValue(marginLeft);
 				if(marginLeftValue > -186*5){
 					$listsEl.animate({marginLeft: "-=186px"}, "slow");
-				}				
+				}	
+				isActive(marginLeftValue);			
 			}
 		});
 	});
